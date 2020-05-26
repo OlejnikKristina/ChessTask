@@ -2,13 +2,6 @@
 #ifndef FIGURE_HPP
 #define FIGURE_HPP
 
-#define ROOK 'r'
-#define KING '+'
-#define QUEEN 'q'
-#define PAWN 'p'
-#define BISHOP 'b'
-#define KNIGHT 'k'
-
 #include "Chess.hpp"
 
 using std::string;

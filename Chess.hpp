@@ -5,8 +5,10 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <ctype.h>
 
 #include "Figure.hpp"
+#include "shortcuts.hpp"
 
 using std::string;
 using std::cout;
@@ -18,16 +20,18 @@ class	Chess
 	public:
 	map <string, string>	figsWhite;
 	map <string, string>	figsBlack;
-	char					board[8][8];
+	char					board[9][8];
 
 	Chess();
 	void	figuresInit();
 	void	boardInit();
 
-	void	printBoard();
+	void	boardPrint();
 
 	void	moveBlack(string move);
 	void	moveWhite(string move);
+	/* Additional functions */
+	bool		isWhiteFigure(char figure);
 	
 };
 
