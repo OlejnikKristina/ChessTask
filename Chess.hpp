@@ -17,8 +17,8 @@ using std::map;
 class	Chess
 {
 	private:
-	char					moveFrom[2];
-	char					moveTo[2];
+	char					moveFrom[3];
+	char					moveTo[3];
 
 	public:
 	map <string, string>	figsWhite;
