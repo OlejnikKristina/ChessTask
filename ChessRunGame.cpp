@@ -35,6 +35,19 @@ bool		Chess::substructMove(char move[], char direction[3])
 	return (true);
 }
 
+bool		Chess::getMove()
+{
+	char		move[42];
+
+	std::cout << "  Enter move: ";
+	std::cin.getline(move, 42);
+	if (!substructMove(move, currPos))
+		return (false);
+	if (!substructMove(&move[2], destPos))
+		return (false);
+	return (true);
+}
+
 bool		Chess::moveFigure(map <string, char> figures)
 {
 	char	figure;
@@ -43,7 +56,8 @@ bool		Chess::moveFigure(map <string, char> figures)
 	if (figure == PAWN || figure == BPAWN)
 	{
 		Pawn paw(currPos, destPos, figures["color"]);
-		// paw.chekMove();
+		if (paw.chekMove(board) == false)
+			return (false);
 	}
 	else if (figure == BISHOP|| figure == BBISHOP)
 	{
@@ -74,24 +88,12 @@ bool		Chess::moveFigure(map <string, char> figures)
 	return (true);
 }
 
-bool		Chess::getMove()
-{
-	char		move[42];
-
-	std::cout << "Enter move: ";
-	std::cin.getline(move, 42);
-	if (!substructMove(move, currPos))
-		return (false);
-	std::cout << "currPos: " << currPos << ' ';
-	if (!substructMove(&move[2], destPos))
-		return (false);
-	std::cout << "destPos: "<< destPos << '\n';
-	return (true);
-}
-
 bool		Chess::runGame()
 {
-	std::cout << "** White's move **\n";
+	std::cout << "  ** White's move **\n";
 	while (!getMove() || !moveFigure(figsWhite))
+		;
+	std::cout << "  ** Black's move **\n";
+	while (!getMove() || !moveFigure(figsBlack))
 		;
 }

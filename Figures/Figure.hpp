@@ -7,19 +7,24 @@
 #include <map>
 #include <ctype.h>
 #include <string.h>
+#include "../shortcuts.hpp"
 
 using std::string;
 
 class	Figure
 {
 	protected:
-	char		currPos[3];		// current figure position
-	char		destPos[3];		// new figure position
+	int			currPos[2];		// current figure position
+	int			destPos[2];		// new figure position [y;x]
 	char		color;
 
 	public:
 	Figure();
 	Figure(char curretPos[3], char destPos[3], char color);
+	void		errorWrongMove(const char *figure, const char *extra = "\0");
+	char		putVal(char val);
+	bool		isWhiteFigure(char figure);
+	bool		isBlackFigure(char figure);
 };
 
 #endif

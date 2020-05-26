@@ -26,6 +26,8 @@
 #define F 5
 #define G 6
 #define H 7
+#define Y 1
+#define X 0
 
 #define RESET   "\033[0m"
 #define BLACK "\033[1m\033[30m"

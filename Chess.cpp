@@ -54,9 +54,11 @@ void	Chess::boardInit()
 void	Chess::figuresInit()
 {
 	string	letter;
+	string	color = "color";
+	map <string, char> ::iterator it;
 
-	figsWhite["сolour"] = 'w';
-	figsBlack["colour"] = 'b';
+	figsWhite[color] = 'w';
+	figsBlack[color] = 'b';
 	for (char a = 'a'; a <= 'h'; a++)
 	{
 		letter = a;
