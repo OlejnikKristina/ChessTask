@@ -75,9 +75,11 @@ void	Chess::figuresInit()
 
 Chess::Chess()
 {
+	gameRules();
 	figuresInit();
 	boardInit();
 	boardPrint();
+	runGame();
 }
 
 int		main()

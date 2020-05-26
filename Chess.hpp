@@ -16,7 +16,10 @@ using std::map;
 
 class	Chess
 {
-	// private:
+	private:
+	char					moveFrom[2];
+	char					moveTo[2];
+
 	public:
 	map <string, string>	figsWhite;
 	map <string, string>	figsBlack;
@@ -25,11 +28,17 @@ class	Chess
 	Chess();
 	void	figuresInit();
 	void	boardInit();
-
 	void	boardPrint();
 
+	bool	runGame();
+	bool	getMove();
+	bool	substructMove(char move[], char direction[3]);
+	bool	checkSpot(map <string, string> figures);
 	void	moveBlack(string move);
 	void	moveWhite(string move);
+
+	void	gameRules();
+
 	/* Additional functions */
 	bool		isWhiteFigure(char figure);
 	
