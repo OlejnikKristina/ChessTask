@@ -55,8 +55,8 @@ void	Chess::figuresInit()
 {
 	string	letter;
 
-	figsWhite["сolour"] = "white";
-	figsBlack["colour"] = "black";
+	figsWhite["сolour"] = 'w';
+	figsBlack["colour"] = 'b';
 	for (char a = 'a'; a <= 'h'; a++)
 	{
 		letter = a;

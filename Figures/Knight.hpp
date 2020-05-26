@@ -7,6 +7,8 @@
 class		Knight: public Figure
 {
 	public:
+	Knight();
+	Knight(char current[3], char dest[3]);
 };
 
 #endif

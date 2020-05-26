@@ -9,6 +9,12 @@
 
 #include "Figure.hpp"
 #include "shortcuts.hpp"
+#include "Queen.hpp"
+#include "King.hpp"
+#include "Rook.hpp"
+#include "Bishop.hpp"
+#include "Knight.hpp"
+#include "Pawn.hpp"
 
 using std::string;
 using std::cout;
@@ -17,12 +23,12 @@ using std::map;
 class	Chess
 {
 	private:
-	char					moveFrom[3];
-	char					moveTo[3];
+	char					currPos[3];
+	char					destPos[3];
 
 	public:
-	map <string, string>	figsWhite;
-	map <string, string>	figsBlack;
+	map <string, char>		figsWhite;
+	map <string, char>		figsBlack;
 	char					board[9][8];
 
 	Chess();
@@ -33,8 +39,8 @@ class	Chess
 	bool	runGame();
 	bool	getMove();
 	bool	substructMove(char move[], char direction[3]);
-	bool	checkCurrSpot(map <string, string> figures);
-	bool	checkMove(map <string, string> figures);
+	bool	checkCurrSpot(map <string, char> figures);
+	bool	moveFigure(map <string, char> figures);
 	void	moveBlack(string move);
 	void	moveWhite(string move);
 
@@ -44,6 +50,11 @@ class	Chess
 	bool		isWhiteFigure(char figure);
 	
 };
+
+/*	figsWhite[key][val], figsBlack [key][val]
+	key = current figure position on a board (a2, b7 ...);
+	val = figure
+*/
 
 void	trim(std::string &s);
 void	*ft_memset(void *s, int c, int n);
