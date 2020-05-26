@@ -8,7 +8,7 @@ class		Bishop: public Figure
 {
 	public:
 	Bishop();
-	Bishop(char current[3], char dest[3]);
+	Bishop(char current[3], char dest[3], char fcolor);
 };
 
 #endif

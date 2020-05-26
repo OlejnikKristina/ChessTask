@@ -4,8 +4,8 @@
 
 Pawn::Pawn(){}
 
-Pawn::Pawn(char current[3], char dest[3])
-	:Figure(current, dest)
+Pawn::Pawn(char current[3], char dest[3], char fcolor)
+	:Figure(current, dest, fcolor)
 {
 	std::cout << "I am pawn! [" << currPos << "] [" << destPos << "] ";
 }

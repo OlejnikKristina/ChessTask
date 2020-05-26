@@ -8,7 +8,7 @@ class		Queen: public Figure
 {
 	public:
 	Queen();
-	Queen(char current[3], char dest[3]);
+	Queen(char current[3], char dest[3], char fcolor);
 };
 
 #endif

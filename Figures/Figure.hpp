@@ -15,10 +15,11 @@ class	Figure
 	protected:
 	char		currPos[3];		// current figure position
 	char		destPos[3];		// new figure position
+	char		color;
 
 	public:
 	Figure();
-	Figure(char curretPos[3], char destPos[3]);
+	Figure(char curretPos[3], char destPos[3], char color);
 };
 
 #endif

@@ -42,27 +42,28 @@ bool		Chess::moveFigure(map <string, char> figures)
 	figure = figures[currPos];
 	if (figure == PAWN || figure == BPAWN)
 	{
-		Pawn paw(currPos, destPos);
+		Pawn paw(currPos, destPos, figures["color"]);
+		// paw.chekMove();
 	}
 	else if (figure == BISHOP|| figure == BBISHOP)
 	{
-		Bishop bishop(currPos, destPos);
+		Bishop bishop(currPos, destPos, figures["color"]);
 	}
 	else if (figure == KNIGHT || figure == BKNIGHT)
 	{
-		Knight knight(currPos, destPos);
+		Knight knight(currPos, destPos, figures["color"]);
 	}
 	else if (figure == ROOK || figure == BROOK)
 	{
-		Rook rook(currPos, destPos);
+		Rook rook(currPos, destPos, figures["color"]);
 	}
 	else if (figure == QUEEN || figure == BQUEEN)
 	{
-		Queen queen(currPos, destPos);
+		Queen queen(currPos, destPos, figures["color"]);
 	}
 	else if (figure == KING || figure == BKING)
 	{
-		King king(currPos, destPos);
+		King king(currPos, destPos, figures["color"]);
 	}
 	else
 	{

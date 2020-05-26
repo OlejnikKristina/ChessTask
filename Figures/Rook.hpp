@@ -8,7 +8,7 @@ class		Rook: public Figure
 {
 	public:
 	Rook();
-	Rook(char current[3], char dest[3]);
+	Rook(char current[3], char dest[3], char fcolor);
 };
 
 #endif
