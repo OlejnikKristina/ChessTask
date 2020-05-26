@@ -35,7 +35,7 @@ bool		Chess::substructMove(char move[], char direction[3])
 	return (true);
 }
 
-bool		Chess::checkSpot(map <string, string> figures)
+bool		Chess::checkCurrSpot(map <string, string> figures)
 {
 	if (figures.count((const char *)moveFrom) == 0)
 	{
@@ -44,6 +44,11 @@ bool		Chess::checkSpot(map <string, string> figures)
 		return (false);
 	}
 	return (true);
+}
+
+bool		Chess::checkMove(map <string, string> figures)
+{
+	
 }
 
 bool		Chess::getMove()
@@ -64,7 +69,7 @@ bool		Chess::getMove()
 bool		Chess::runGame()
 {
 	std::cout << "** White's move **\n";
-	while (getMove() == false || checkSpot(figsWhite) == false)
+	while (getMove() == false || checkCurrSpot(figsWhite) == false)
 		;
 	/* Move white */
 	/* Move black */

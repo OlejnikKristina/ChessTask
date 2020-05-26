@@ -33,7 +33,8 @@ class	Chess
 	bool	runGame();
 	bool	getMove();
 	bool	substructMove(char move[], char direction[3]);
-	bool	checkSpot(map <string, string> figures);
+	bool	checkCurrSpot(map <string, string> figures);
+	bool	checkMove(map <string, string> figures);
 	void	moveBlack(string move);
 	void	moveWhite(string move);
 

@@ -2,9 +2,11 @@
 NAME		:= Chess
 COMPILER	:= g++
 
-SRC			:= Chess.cpp Figure.cpp ChessRunGame.cpp
+SRC			:= Chess.cpp Figures/Figure.cpp ChessRunGame.cpp Figures/Bishop.cpp \
+			Figures/King.cpp Figures/Knight.cpp Figures/Pawn.cpp Figures/Queen.cpp \
+			Figures/Rook.cpp
 EXTRA		:= extra/trimSpaces.cpp extra/ft_memset.cpp extra/isWhiteFigure.cpp
-INCLUDE		:= Chess.hpp
+INCLUDE		:= -I . -I Figures/
 
 make:
-	$(COMPILER) -o $(NAME) $(SRC) $(EXTRA) $(INCLUDE) -I .
+	$(COMPILER) -o $(NAME) $(SRC) $(EXTRA) $(INCLUDE)
