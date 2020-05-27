@@ -1,11 +1,21 @@
 
 #include "Figure.hpp"
 
-void	Figure::errorWrongMove(const char *figure, const char *extra)
+bool	Figure::preCheck(char destX, char destY, const char *figure)
+{
+	if (H < destX || 8 < destY)
+	{
+		moveError(figure);
+		return (false);
+	}
+	return (true);
+}
+
+void	Figure::moveError(const char *figure, const char *extra)
 {
 	std::cout << RED <<"Illigal move for " << figure << extra;
 	std::cout << ". Try again.\n" << RESET;
-	std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
+	// std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
 }
 
 void		Figure::initCoordinate(int moveFrom[2], int moveTo[2])

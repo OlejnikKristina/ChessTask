@@ -39,25 +39,13 @@ bool		Chess::getMove()
 {
 	char		move[42];
 
-	std::cout << "  Enter move: ";
+	std::cout << " Enter move: ";
 	std::cin.getline(move, 42);
 	if (!substructMove(move, currPos))
 		return (false);
 	if (!substructMove(&move[2], destPos))
 		return (false);
 	return (true);
-}
-
-void		Chess::show_figures(std::map <string, char> figures)
-{
-	map<string, char>::iterator it;
-
-	it = figures.begin();
-	while (it != figures.end())
-	{
-		cout << "key: "<< it->first << " val: " << it->second << '\n';
-		it++;
-	}
 }
 
 bool		Chess::moveFigure(map <string, char> &figures)
@@ -71,9 +59,9 @@ bool		Chess::moveFigure(map <string, char> &figures)
 	figure = figures[currPos];
 	if (figure == PAWN || figure == BPAWN)
 	{
-		Pawn paw(current, dest, figures["color"]);
-		paw.initCoordinate(moveFrom, moveTo);
-		if (paw.chekMove(board) == false)
+		Pawn pawn(current, dest, figures["color"]);
+		pawn.initCoordinate(moveFrom, moveTo);
+		if (pawn.checkMove(board) == false)
 			return (false);
 	}
 	else if (figure == BISHOP|| figure == BBISHOP)
@@ -87,6 +75,9 @@ bool		Chess::moveFigure(map <string, char> &figures)
 	else if (figure == ROOK || figure == BROOK)
 	{
 		Rook rook(current, dest, figures["color"]);
+		rook.initCoordinate(moveFrom, moveTo);
+		if (rook.checkMove(board) == false)
+			return (false);
 	}
 	else if (figure == QUEEN || figure == BQUEEN)
 	{

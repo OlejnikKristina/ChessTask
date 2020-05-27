@@ -48,6 +48,7 @@ void	Chess::boardInit()
 	board[1][C] = board[1][F] = BISHOP;
 	board[1][D] = QUEEN;
 	board[1][E] = KING;
+	board[4][C] = ROOK;
 	/* Init board by black figurs */
 	board[8][A] = board[8][H] = BROOK;
 	board[8][B] = board[8][G] = BKNIGHT;
@@ -71,6 +72,7 @@ void	Chess::figuresInit()
 		figsBlack[letter + "7"] = BPAWN;
 	}
 	figsWhite["a1"] = figsWhite["h1"] = ROOK;
+	figsWhite["c4"] = ROOK;
 	figsWhite["b1"] = figsWhite["g1"] = KNIGHT;
 	figsWhite["c1"] = figsWhite["f1"] = BISHOP;
 	figsWhite["d1"] = QUEEN;

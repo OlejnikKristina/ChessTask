@@ -10,4 +10,4 @@ EXTRA		:= extra/trimSpaces.cpp extra/ft_memset.cpp extra/isWhiteFigure.cpp
 INCLUDE		:= -I . -I Figures/ Figures/Queen.hpp
 
 make:
-	$(COMPILER) -o $(NAME) $(SRC) $(EXTRA) $(INCLUDE)
+	$(COMPILER) -o $(NAME) $(SRC) $(EXTRA) $(INCLUDE) -g

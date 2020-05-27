@@ -14,11 +14,8 @@ Pawn::Pawn(char current[3], char dest[3], char fcolor)
 
 bool	Pawn::checkMoveWhitePawn(char board[9][8])
 {
-	if (H < destPos[X] || 8 < destPos[Y])
-	{
-		errorWrongMove("Figure");
+	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
 		return (false);
-	}
 	else if (currPos[X] == destPos[X] && (currPos[Y] == destPos[Y] - 1))
 		std::cout << "  White pawn is moving.\n";
 	else if (currPos[X] == destPos[X] && 
@@ -34,7 +31,7 @@ bool	Pawn::checkMoveWhitePawn(char board[9][8])
 		std::cout << "  White pawn attacks from right!\n";
 	else
 	{
-		errorWrongMove("Pawn");
+		moveError("Pawn");
 		return (false);
 	}
 	return (true);
@@ -42,11 +39,8 @@ bool	Pawn::checkMoveWhitePawn(char board[9][8])
 
 bool	Pawn::checkMoveBlackPawn(char board[9][8])
 {
-	if (H < destPos[X] || 8 < destPos[Y])
-	{
-		errorWrongMove("Pawn");
+	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
 		return (false);
-	}
 	else if (currPos[X] == destPos[X] && (currPos[Y] == destPos[Y] + 1))
 		std::cout << "  Black pawn is moving.\n";
 	else if (currPos[X] == destPos[X] && 
@@ -62,13 +56,13 @@ bool	Pawn::checkMoveBlackPawn(char board[9][8])
 		std::cout << "  Black pawn attacks from right!\n";
 	else
 	{
-		errorWrongMove("Pawn");
+		moveError("Pawn");
 		return (false);
 	}
 	return (true);
 }
 
-bool	Pawn::chekMove(char board[9][8])
+bool	Pawn::checkMove(char board[9][8])
 {
 	if (color == 'w')
 		return (checkMoveWhitePawn(board));

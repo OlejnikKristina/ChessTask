@@ -42,14 +42,11 @@ class	Chess
 	bool	getMove();
 	bool	substructMove(char move[], char direction[3]);
 	bool	moveFigure(map <string, char> &figures);
-	void	updateFigureSpot(std::map <string, char> &figures,\
-			char exSpot[3], char newSpot[3]);
+	void	updateFigureSpot(std::map <string, char> &figures);
 	void	show_figures(std::map <string, char> figures);
 	bool	putFigureOnBoard(char color, \
 			std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
-	bool	putWhiteFigure();
-	bool	putBlackFigure();
 
 	void	gameRules();
 
