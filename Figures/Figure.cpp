@@ -1,19 +1,9 @@
 
 #include "Figure.hpp"
 
-void	Figure::updateFigureCoordinate(std::map <string, char> figures)
-{
-	char	littleFigure;
-
-	littleFigure = figures[currXY];
-	figures.erase(currXY);
-	figures[destXY] = littleFigure;
-}
-
 void	Figure::errorWrongMove(const char *figure, const char *extra)
 {
-	std::cout << RED <<"Error wrong move for " << figure;
-	std::cout << extra;
+	std::cout << RED <<"Illigal move for " << figure << extra;
 	std::cout << ". Try again.\n" << RESET;
 	std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
 }

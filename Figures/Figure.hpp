@@ -27,7 +27,6 @@ class	Figure
 	char		putVal(char val);
 	bool		isWhiteFigure(char figure);
 	bool		isBlackFigure(char figure);
-	void		updateFigureCoordinate(std::map <string, char> figures);
 	void		initCoordinate(int moveFrom[2], int moveTo[2]);
 };
 

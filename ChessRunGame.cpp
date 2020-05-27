@@ -48,7 +48,19 @@ bool		Chess::getMove()
 	return (true);
 }
 
-bool		Chess::moveFigure(map <string, char> figures)
+void		Chess::show_figures(std::map <string, char> figures)
+{
+	map<string, char>::iterator it;
+
+	it = figures.begin();
+	while (it != figures.end())
+	{
+		cout << "key: "<< it->first << " val: " << it->second << '\n';
+		it++;
+	}
+}
+
+bool		Chess::moveFigure(map <string, char> &figures)
 {
 	char	figure;
 	char	current[3];
@@ -66,23 +78,23 @@ bool		Chess::moveFigure(map <string, char> figures)
 	}
 	else if (figure == BISHOP|| figure == BBISHOP)
 	{
-		Bishop bishop(currPos, destPos, figures["color"]);
+		Bishop bishop(current, dest, figures["color"]);
 	}
 	else if (figure == KNIGHT || figure == BKNIGHT)
 	{
-		Knight knight(currPos, destPos, figures["color"]);
+		Knight knight(current, dest, figures["color"]);
 	}
 	else if (figure == ROOK || figure == BROOK)
 	{
-		Rook rook(currPos, destPos, figures["color"]);
+		Rook rook(current, dest, figures["color"]);
 	}
 	else if (figure == QUEEN || figure == BQUEEN)
 	{
-		Queen queen(currPos, destPos, figures["color"]);
+		Queen queen(current, dest, figures["color"]);
 	}
 	else if (figure == KING || figure == BKING)
 	{
-		King king(currPos, destPos, figures["color"]);
+		King king(current, dest, figures["color"]);
 	}
 	else
 	{
@@ -97,14 +109,13 @@ bool		Chess::runGame()
 {
 	for (int i = 0; i < 2; i++)
 	{
-		std::cout << "  ** White's move **\n";
+		std::cout << "  ** White's turn **\n";
 		while (!getMove() || !moveFigure(figsWhite))
 			;
-		putFigureOnBoard(figsWhite[currPos]);
-		std::cout << "  ** Black's move **\n";
+		putFigureOnBoard(figsWhite[currPos], figsWhite);
+		std::cout << "  ** Black's turn **\n";
 		while (!getMove() || !moveFigure(figsBlack))
 			;
-		putFigureOnBoard(figsBlack[currPos]);
-		//Change figures key to new position
+		putFigureOnBoard(figsBlack[currPos], figsBlack);
 	}
 }

@@ -7,9 +7,9 @@ Pawn::Pawn(){}
 Pawn::Pawn(char current[3], char dest[3], char fcolor)
 	:Figure(current, dest, fcolor)
 {
-	std::cout << "I am pawn!" \
-	<< "Curr pos: x ["<< currPos[0] << "] y [" << currPos[1] << "] " \
-	<< "Dest pos: x ["<< destPos[0] << "] y [" << destPos[1] << "] \n";
+	std::cout << "I am pawn! ";
+	// << "Curr: x["<< currPos[0] << "] y[" << currPos[1] << "] " \
+	// << "Dest: x["<< destPos[0] << "] y[" << destPos[1] << "] \n";
 }
 
 bool	Pawn::checkMoveWhitePawn(char board[9][8])
@@ -54,11 +54,11 @@ bool	Pawn::checkMoveBlackPawn(char board[9][8])
 		std::cout << "  Black pawn first move and already far\n";
 	else if (currPos[X] != H && destPos[X] == currPos[X] + 1
 	&& destPos[Y] == currPos[Y] - 1
-	&& isBlackFigure(board[destPos[Y]][destPos[X]]))
+	&& isWhiteFigure(board[destPos[Y]][destPos[X]]))
 		std::cout << "  Black pawn attacks from left!\n";
 	else if (currPos[X] != A && destPos[X] == currPos[X] - 1
 	&& destPos[Y] == currPos[Y] - 1
-	&& isBlackFigure(board[destPos[Y]][destPos[X]]))
+	&& isWhiteFigure(board[destPos[Y]][destPos[X]]))
 		std::cout << "  Black pawn attacks from right!\n";
 	else
 	{
