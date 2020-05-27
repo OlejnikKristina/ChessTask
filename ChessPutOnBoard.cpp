@@ -18,12 +18,17 @@ void		Chess::updateFigureSpot(std::map <string, char> &figures)
 	char		tempFigure;
 	string		exSpot;
 	string		newSpot;
+	string		color = "color";
 
 	exSpot = currPos;
 	newSpot = destPos;
 	tempFigure = figures[exSpot];
 	figures.erase(exSpot);
 	figures[newSpot] = tempFigure;
+	if (figures[color] == 'b')
+		figsWhite.erase(destPos);
+	else
+		figsBlack.erase(destPos);
 }
 
 bool	Chess::putFigureOnBoard(char figure, std::map <string, char> &figures)
