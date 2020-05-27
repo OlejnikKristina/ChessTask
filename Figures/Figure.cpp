@@ -15,7 +15,6 @@ void	Figure::moveError(const char *figure, const char *extra)
 {
 	std::cout << RED <<"Illigal move for " << figure << extra;
 	std::cout << ". Try again.\n" << RESET;
-	// std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
 }
 
 void		Figure::initCoordinate(int moveFrom[2], int moveTo[2])
@@ -40,6 +39,11 @@ bool	Figure::isWhiteFigure(char figure)
 	figure == PAWN || figure == BISHOP || figure == KNIGHT
 	|| figure == ROOK || figure == QUEEN || figure == KING
 	);
+}
+
+bool		Figure::isFigure(char figure)
+{
+	return (isWhiteFigure(figure) || isBlackFigure(figure));
 }
 
 char		Figure::putVal(char val)
