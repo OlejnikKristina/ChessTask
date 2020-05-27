@@ -7,19 +7,13 @@ Bishop::Bishop(char current[3], char dest[3], char fcolor)
 {
 	std::cout << "I am Bishop! \n";
 }
-// if (x == destPos[X] && y == destPos[Y] && (this->*isEnemy)(board[y][x]))
-	// return (true);
-		// if (x == destPos[X] && y != destPos[Y])
-		// 	return (false);
-		// else if (y == destPos[Y] && x != destPos[X])
-		// 	return (false);
 
 bool	Bishop::checkDiagonalLeftUp(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	int		x, y;
 
 	x = currPos[X] - 1;
-	y = currPos[Y] + y;
+	y = currPos[Y] + 1;
 	while (destPos[X] <= x && y <= destPos[Y])
 	{
 		if (x == destPos[X] && y == destPos[Y] &&
@@ -68,7 +62,7 @@ bool	Bishop::checkDiagonalLeftDown(char board[9][8], bool(Figure::*isEnemy)(char
 		else if (isFigure(board[y][x]))
 			break ;
 	}
-	moveError("Bishop", " Obstacal left below");
+	moveError("Bishop", " Obstacle below on the left");
 	return (false);
 }
 
@@ -86,7 +80,7 @@ bool	Bishop::checkDiagonalRightDown(char board[9][8], bool(Figure::*isEnemy)(cha
 		else if (isFigure(board[y][x]))
 			break ;
 	}
-	moveError("Bishop", " Obstacal below");
+	moveError("Bishop", ". Obstacle below on the right");
 	return (false);
 }
 
@@ -94,7 +88,6 @@ bool	Bishop::checkMove(char board[9][8])
 {
 	bool	(Figure::*isEnemy)(char);
 
-	std::cout << "color: " << color << " \n";
 	isEnemy = (color == 'w') ?
 	(&Figure::isBlackFigure):(&Figure::isWhiteFigure);
 	if (!preCheck(destPos[X], destPos[Y], "Bishop"))
