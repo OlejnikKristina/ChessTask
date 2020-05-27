@@ -9,12 +9,16 @@ Rook::Rook(char current[3], char dest[3], char fcolor):Figure(current, dest, fco
 
 bool	Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 {
-	for (int x = currPos[X], y = currPos[Y]; x < destPos[X]; ++x)
+	for (int x = currPos[X] + 1, y = currPos[Y]; x <= destPos[X]; x++)
 	{
-		if (board[y][x] != '\0' && x != destPos[X]
-			&& !(this->*isEnemy)(board[y][x]))
+		if (x == destPos[X] && (this->*isEnemy)(board[y][x]))
 		{
-			moveError("Rook", "Obstacal from right. ");
+			std::cout << "Blood for Kingdom!";
+			return (true);
+		}
+		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
+		{
+			moveError("Rook", "Obstacal from right");
 			return (false);
 		}
 	}
@@ -23,12 +27,16 @@ bool	Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 
 bool	Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
 {
-	for (int x = currPos[X], y = currPos[Y]; destPos[X] < x; --x)
+	for (int x = currPos[X] - 1, y = currPos[Y]; destPos[X] <= x; x--)
 	{
-		if (board[y][x] != '\0' && x != destPos[X]
-			&& !(this->*isEnemy)(board[y][x]))
+		if (x == destPos[X] && (this->*isEnemy)(board[y][x]))
 		{
-			moveError("Rook", "Obstacal from left. ");
+			std::cout << "Rook", " Fight for the Queen!";
+			return (true);
+		}
+		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
+		{
+			moveError("Rook", " Obstacal from right");
 			return (false);
 		}
 	}
@@ -37,12 +45,16 @@ bool	Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
 
 bool	Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
 {
-	for (int y = currPos[Y], x = currPos[X]; destPos[Y] < y; ++y)
+	for (int y = currPos[Y] + 1, x = currPos[X]; y <= destPos[Y]; y++)
 	{
-		if (board[y][x] != '\0' && y != destPos[Y] 
-			&& !(this->*isEnemy)(board[y][x]))
+		if (y == destPos[Y] && (this->*isEnemy)(board[y][x]))
 		{
-			moveError("Rook", "Obstacal from top. ");
+			std::cout << " Kill them all. ";
+			return (true);
+		}
+		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
+		{
+			moveError("Rook", " Obstacal adove");
 			return (false);
 		}
 	}
@@ -51,12 +63,16 @@ bool	Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
 
 bool	Rook::checkMoveDown(char board[9][8], bool(Figure::*isEnemy)(char))
 {
-	for (int y = currPos[Y], x = currPos[X]; y < destPos[Y]; --y)
+	for (int y = currPos[Y] - 1, x = currPos[X]; destPos[Y] <= y; y--)
 	{
-		if (board[y][x] != '\0' && y != destPos[Y] 
-			&& !(this->*isEnemy)(board[y][x]))
+		if (y == destPos[Y] && (this->*isEnemy)(board[y][x]))
 		{
-			moveError("Rook", "Obstacal below. ");
+			std::cout << " Go to a better world. ";
+			return (true);
+		}
+		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
+		{
+			moveError("Rook", " Obstacal below");
 			return (false);
 		}
 	}
@@ -73,13 +89,13 @@ bool	Rook::checkMove(char board[9][8])
 		isEnemy = &Figure::isWhiteFigure;
 	if (!preCheck(destPos[X], destPos[Y], "Rook"))
 		return (false);
-	if (currPos[Y] == destPos[Y] && currPos[X] < destPos[X])
+	if (currPos[Y] == destPos[Y] && currPos[X] > destPos[X])
 		return (checkMoveLeft(board, isEnemy));
-	else if (currPos[Y] == destPos[Y] && destPos[X] < currPos[X])
+	else if (currPos[Y] == destPos[Y] && currPos[X] < destPos[X])
 		return (checkMoveRight(board, isEnemy));
 	else if (currPos[X] == destPos[X] && currPos[Y] < destPos[Y])
 		return (checkMoveUp(board, isEnemy));
-	else if (currPos[X] == destPos[X] && destPos[Y] < currPos[Y])
+	else if (currPos[X] == destPos[X] && currPos[Y] > destPos[Y])
 		return (checkMoveDown(board, isEnemy));
 	else
 	{

@@ -98,7 +98,7 @@ bool		Chess::moveFigure(map <string, char> &figures)
 
 bool		Chess::runGame()
 {
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		std::cout << "  ** White's turn **\n";
 		while (!getMove() || !moveFigure(figsWhite))
