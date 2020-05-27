@@ -51,11 +51,16 @@ bool		Chess::getMove()
 bool		Chess::moveFigure(map <string, char> figures)
 {
 	char	figure;
+	char	current[3];
+	char	dest[3];
 
+	strncpy(current, (char const *) currPos, 3);
+	strncpy(dest, (char const *) destPos, 3);
 	figure = figures[currPos];
 	if (figure == PAWN || figure == BPAWN)
 	{
-		Pawn paw(currPos, destPos, figures["color"]);
+		Pawn paw(current, dest, figures["color"]);
+		paw.initCoordinate(moveFrom, moveTo);
 		if (paw.chekMove(board) == false)
 			return (false);
 	}
@@ -90,10 +95,16 @@ bool		Chess::moveFigure(map <string, char> figures)
 
 bool		Chess::runGame()
 {
-	std::cout << "  ** White's move **\n";
-	while (!getMove() || !moveFigure(figsWhite))
-		;
-	std::cout << "  ** Black's move **\n";
-	while (!getMove() || !moveFigure(figsBlack))
-		;
+	for (int i = 0; i < 2; i++)
+	{
+		std::cout << "  ** White's move **\n";
+		while (!getMove() || !moveFigure(figsWhite))
+			;
+		putFigureOnBoard(figsWhite[currPos]);
+		std::cout << "  ** Black's move **\n";
+		while (!getMove() || !moveFigure(figsBlack))
+			;
+		putFigureOnBoard(figsBlack[currPos]);
+		//Change figures key to new position
+	}
 }

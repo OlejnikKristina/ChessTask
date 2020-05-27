@@ -1,6 +1,31 @@
 
 #include "Figure.hpp"
 
+void	Figure::updateFigureCoordinate(std::map <string, char> figures)
+{
+	char	littleFigure;
+
+	littleFigure = figures[currXY];
+	figures.erase(currXY);
+	figures[destXY] = littleFigure;
+}
+
+void	Figure::errorWrongMove(const char *figure, const char *extra)
+{
+	std::cout << RED <<"Error wrong move for " << figure;
+	std::cout << extra;
+	std::cout << ". Try again.\n" << RESET;
+	std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
+}
+
+void		Figure::initCoordinate(int moveFrom[2], int moveTo[2])
+{
+	moveFrom[X] = currPos[X];
+	moveFrom[Y] = currPos[Y];
+	moveTo[X] = destPos[X];
+	moveTo[Y] = destPos[Y];
+}
+
 bool	Figure::isBlackFigure(char figure)
 {
 	return (
@@ -34,6 +59,8 @@ Figure::Figure() {}
 
 Figure::Figure(char current[3], char dest[3], char fcolor)
 {
+	destXY = dest;
+	currXY = current;
 	currPos[X] = putVal(current[0]);
 	current[X] = ' ';
 	currPos[Y] = atoi((const char *)&current[1]);
@@ -41,12 +68,4 @@ Figure::Figure(char current[3], char dest[3], char fcolor)
 	dest[X] = ' ';
 	destPos[Y] = atoi((const char *)&dest[1]);
 	color = fcolor;
-}
-
-void	Figure::errorWrongMove(const char *figure, const char *extra)
-{
-	std::cout << RED <<"Error wrong move for " << figure;
-	std::cout << extra;
-	std::cout << ". Try again.\n" << RESET;
-	std::cout << "Syntax: [[letter column][num row]] [[letter column][num row]]\n";
 }

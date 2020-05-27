@@ -25,6 +25,8 @@ class	Chess
 	private:
 	char					currPos[3];
 	char					destPos[3];
+	int						moveFrom[2];
+	int						moveTo[2];
 
 	public:
 	map <string, char>		figsWhite;
@@ -40,8 +42,10 @@ class	Chess
 	bool	getMove();
 	bool	substructMove(char move[], char direction[3]);
 	bool	moveFigure(map <string, char> figures);
-	void	moveBlack(string move);
-	void	moveWhite(string move);
+	bool	putFigureOnBoard(char color);
+	bool	isBlackFigure(char figure);
+	bool	putWhiteFigure();
+	bool	putBlackFigure();
 
 	void	gameRules();
 
