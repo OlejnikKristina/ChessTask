@@ -13,7 +13,7 @@ bool	Figure::preCheck(char destX, char destY, const char *figure)
 
 void	Figure::moveError(const char *figure, const char *extra)
 {
-	std::cout << RED <<"Illigal move for " << figure << extra;
+	std::cout << RED <<"Illegal move for " << figure << extra;
 	std::cout << ". Try again.\n" << RESET;
 }
 

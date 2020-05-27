@@ -29,12 +29,21 @@ void	Chess::boardPrint()
 	std::cout << RESET << "\n\n";
 }
 
+void	Chess::boardSetToZero()
+{
+	for (int y = 0; y <= 8; y++)
+	{
+		for (int x = 0; x < 8; x++)
+			board[y][x] = '\0';
+	}
+}
+
 void	Chess::boardInit()
 {
 	char	letter;
 
 	letter = 'a';
-	ft_memset((void *)&board, '\0', 9 * 8);
+	boardSetToZero();
 	for (int x = 0; x < 8; x++)
 	{
 		board[0][x] = letter;	// Fill board by letters

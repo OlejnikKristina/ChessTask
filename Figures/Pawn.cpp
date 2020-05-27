@@ -8,26 +8,26 @@ Pawn::Pawn(char current[3], char dest[3], char fcolor)
 	:Figure(current, dest, fcolor)
 {
 	std::cout << "I am pawn! ";
-	// << "Curr: x["<< currPos[0] << "] y[" << currPos[1] << "] " \
-	// << "Dest: x["<< destPos[0] << "] y[" << destPos[1] << "] \n";
 }
 
 bool	Pawn::checkMoveWhitePawn(char board[9][8])
 {
-	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
+	int		y, x;
+
+	y = destPos[Y];
+	x = destPos[X];
+	if (!preCheck(x, y, "Pawn"))
 		return (false);
-	else if (currPos[X] == destPos[X] && (currPos[Y] == destPos[Y] - 1))
+	else if (currPos[X] == x && (currPos[Y] == y - 1) && !isFigure(board[y][x]))
 		std::cout << "  White pawn is moving.\n";
-	else if (currPos[X] == destPos[X] && 
-	(currPos[Y] == 2 && 2 == destPos[Y] - 2))
-		std::cout << "  White pawn first move and already far\n";
-	else if (currPos[X] != H && destPos[X] == currPos[X] + 1
-	&& destPos[Y] == currPos[Y] + 1
-	&& isBlackFigure(board[destPos[Y]][destPos[X]]))
+	else if (currPos[X] == x && (currPos[Y] == 2 && 4 == y)
+		&& !isFigure(board[3][x]) && !isFigure(board[4][x]))
+		std::cout << "  I am going be the Queen!\n";
+	else if (currPos[X] != H && x == currPos[X] + 1 && y == currPos[Y] + 1
+		&& isBlackFigure(board[y][x]))
 		std::cout << "  White pawn attacks from left!\n";
-	else if (currPos[X] != A && destPos[X] == currPos[X] - 1
-	&& destPos[Y] == currPos[Y] + 1
-	&& isBlackFigure(board[destPos[Y]][destPos[X]]))
+	else if (currPos[X] != A && x == currPos[X] - 1 && y == currPos[Y] + 1
+		&& isBlackFigure(board[y][x]))
 		std::cout << "  White pawn attacks from right!\n";
 	else
 	{
@@ -39,20 +39,22 @@ bool	Pawn::checkMoveWhitePawn(char board[9][8])
 
 bool	Pawn::checkMoveBlackPawn(char board[9][8])
 {
-	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
+	int		y, x;
+
+	y = destPos[Y];
+	x = destPos[X];
+	if (!preCheck(x, y, "Pawn"))
 		return (false);
-	else if (currPos[X] == destPos[X] && (currPos[Y] == destPos[Y] + 1))
+	else if (currPos[X] == x && (currPos[Y] == y + 1) && !isFigure(board[y][x]))
 		std::cout << "  Black pawn is moving.\n";
-	else if (currPos[X] == destPos[X] && 
-	(currPos[Y] == 7 && 7 == destPos[Y] + 2))
+	else if (currPos[X] == x &&  (currPos[Y] == 7 && 5 == y)
+		&& !isFigure(board[6][x]) && !isFigure(board[5][x]))
 		std::cout << "  Black pawn first move and already far\n";
-	else if (currPos[X] != H && destPos[X] == currPos[X] + 1
-	&& destPos[Y] == currPos[Y] - 1
-	&& isWhiteFigure(board[destPos[Y]][destPos[X]]))
+	else if (currPos[X] != H && x == currPos[X] + 1 && y == currPos[Y] - 1
+		&& isWhiteFigure(board[y][x]))
 		std::cout << "  Black pawn attacks from left!\n";
-	else if (currPos[X] != A && destPos[X] == currPos[X] - 1
-	&& destPos[Y] == currPos[Y] - 1
-	&& isWhiteFigure(board[destPos[Y]][destPos[X]]))
+	else if (currPos[X] != A && x == currPos[X] - 1 && y == currPos[Y] - 1
+		&& isWhiteFigure(board[y][x]))
 		std::cout << "  Black pawn attacks from right!\n";
 	else
 	{

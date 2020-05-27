@@ -36,6 +36,7 @@ class	Chess
 	Chess();
 	void	figuresInit();
 	void	boardInit();
+	void	boardSetToZero();
 	void	boardPrint();
 
 	bool	runGame();
@@ -47,7 +48,6 @@ class	Chess
 	bool	putFigureOnBoard(char color, \
 			std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
-
 	void	gameRules();
 
 	bool	goPawn(char current[3], char dest[3], char color);
