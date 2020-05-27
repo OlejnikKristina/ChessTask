@@ -7,3 +7,8 @@ Knight::Knight(char current[3], char dest[3], char fcolor)
 {
 	std::cout << "I am Knight! [" << currPos[0] << "] [" << currPos[1] << "] ";
 }
+
+bool	Knight::checkMove(char board[9][8])
+{
+	return (false);
+}

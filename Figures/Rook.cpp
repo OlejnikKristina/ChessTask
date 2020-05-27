@@ -83,10 +83,8 @@ bool	Rook::checkMove(char board[9][8])
 {
 	bool	(Figure::*isEnemy)(char);
 
-	if (color == 'w')
-		isEnemy = &Figure::isBlackFigure;
-	else
-		isEnemy = &Figure::isWhiteFigure;
+	isEnemy = (color == 'w') ?
+	(&Figure::isBlackFigure):(&Figure::isWhiteFigure);
 	if (!preCheck(destPos[X], destPos[Y], "Rook"))
 		return (false);
 	if (currPos[Y] == destPos[Y] && currPos[X] > destPos[X])

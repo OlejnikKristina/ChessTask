@@ -50,6 +50,12 @@ class	Chess
 
 	void	gameRules();
 
+	bool	goPawn(char current[3], char dest[3], char color);
+	bool	goRook(char current[3], char dest[3], char color);
+	bool	goBishop(char current[3], char dest[3], char color);
+	bool	goKnight(char current[3], char dest[3], char color);
+	bool	goKing(char current[3], char dest[3], char color);
+	bool	goQueen(char current[3], char dest[3], char color);
 	/* Additional functions */
 	bool		isWhiteFigure(char figure);
 	

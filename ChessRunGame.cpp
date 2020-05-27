@@ -58,35 +58,17 @@ bool		Chess::moveFigure(map <string, char> &figures)
 	strncpy(dest, (char const *) destPos, 3);
 	figure = figures[currPos];
 	if (figure == PAWN || figure == BPAWN)
-	{
-		Pawn pawn(current, dest, figures["color"]);
-		pawn.initCoordinate(moveFrom, moveTo);
-		if (pawn.checkMove(board) == false)
-			return (false);
-	}
+		return (goPawn(current, dest, figure["color"]));
 	else if (figure == BISHOP|| figure == BBISHOP)
-	{
-		Bishop bishop(current, dest, figures["color"]);
-	}
+		return (goBishop(current, dest, figure["color"]));
 	else if (figure == KNIGHT || figure == BKNIGHT)
-	{
-		Knight knight(current, dest, figures["color"]);
-	}
+		return (goKnight(current, dest, figure["color"]));
 	else if (figure == ROOK || figure == BROOK)
-	{
-		Rook rook(current, dest, figures["color"]);
-		rook.initCoordinate(moveFrom, moveTo);
-		if (rook.checkMove(board) == false)
-			return (false);
-	}
+		return (goRook(current, dest, figure["color"]));
 	else if (figure == QUEEN || figure == BQUEEN)
-	{
-		Queen queen(current, dest, figures["color"]);
-	}
+		return (goQueen(current, dest, figure["color"]));
 	else if (figure == KING || figure == BKING)
-	{
-		King king(current, dest, figures["color"]);
-	}
+		return (goKing(current, dest, figure["color"]));
 	else
 	{
 		std::cout << "Ops.. [" << currPos << "] ";
