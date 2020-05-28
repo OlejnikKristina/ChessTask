@@ -21,7 +21,7 @@ bool Rook::isCheckToKingDown(char board[9][8], int x, int y, char foeKing)
 {
 	while (1 <= y)
 	{
-		if (isFigure(board[y][destPos[X]]))
+		if (isFigure(board[y][x]))
 			break ;
 		y--;
 	}
@@ -34,7 +34,7 @@ bool Rook::isCheckToKingRight(char board[9][8], int x, int y, char foeKing)
 {
 	while (x <= 7)
 	{
-		if (isFigure(board[y][destPos[X]]))
+		if (isFigure(board[y][x]))
 			break ;
 		x++;
 	}
@@ -47,7 +47,7 @@ bool Rook::isCheckToKingLeft(char board[9][8], int x, int y, char foeKing)
 {
 	while (0 <= x)
 	{
-		if (isFigure(board[y][destPos[X]]))
+		if (isFigure(board[y][x]))
 			break ;
 		x--;
 	}

@@ -45,7 +45,7 @@ void	Figure::moveError(const char *figure, const char *extra)
 	std::cout << ". Try again.\n" << RESET;
 }
 
-void		Figure::initCoordinate(int moveFrom[2], int moveTo[2])
+void	Figure::initCoordinate(int moveFrom[2], int moveTo[2])
 {
 	moveFrom[X] = currPos[X];
 	moveFrom[Y] = currPos[Y];
@@ -69,12 +69,12 @@ bool	Figure::isWhiteFigure(char figure)
 	);
 }
 
-bool		Figure::isFigure(char figure)
+bool	Figure::isFigure(char figure)
 {
 	return (isWhiteFigure(figure) || isBlackFigure(figure));
 }
 
-char		Figure::putVal(char val)
+char	Figure::putVal(char val)
 {
 	if (val == 'a') return (A);
 	else if (val == 'b') return (B);
