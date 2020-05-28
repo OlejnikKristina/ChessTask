@@ -7,14 +7,19 @@ Figure::~Figure(){}
 
 Figure::Figure(char current[3], char dest[3], char fcolor)
 {
+	char tempCurrent[3];
+	char tempDest[3];
+
+	strncpy(tempCurrent,(char const *)current, 3);
+	strncpy(tempDest,(char const *)dest, 3);
 	destXY = dest;
 	currXY = current;
-	currPos[X] = putVal(current[0]);
-	current[X] = ' ';
-	currPos[Y] = atoi((const char *)&current[1]);
-	destPos[X] = putVal(dest[0]);
-	dest[X] = ' ';
-	destPos[Y] = atoi((const char *)&dest[1]);
+	currPos[X] = putVal(tempCurrent[0]);
+	tempCurrent[X] = ' ';
+	currPos[Y] = atoi((const char *)&tempCurrent[1]);
+	destPos[X] = putVal(tempDest[0]);
+	tempDest[X] = ' ';
+	destPos[Y] = atoi((const char *)&tempDest[1]);
 	color = fcolor;
 }
 

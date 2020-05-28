@@ -4,7 +4,7 @@
 
 #include "Figure.hpp"
 
-class		Rook: public virtual Figure
+class		Rook: public Figure
 {
 	public:
 	Rook();
