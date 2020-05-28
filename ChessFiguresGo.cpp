@@ -3,52 +3,89 @@
 
 bool Chess::goPawn(char current[3], char dest[3])
 {
-	Pawn pawn(current, dest, color);
+	Pawn	pawn(current, dest, color);
+	bool	isLegitMove;
+	bool	isCheck;
 
 	pawn.initCoordinate(moveFrom, moveTo);
-	return (pawn.checkMove(board));
+	isLegitMove = pawn.checkMove(board);
+	if (isCheck = pawn.isCheckToKing(board))
+		std::cout << "Check from pawn what a shame!";
+	(color == 'w') ?
+	(checkToBlack = isCheck) : (checkToWhite = isCheck);
+	return (isLegitMove);
 }
 
 bool Chess::goRook(char current[3], char dest[3])
 {
-	Rook rook(current, dest, color);
+	Rook	rook(current, dest, color);
+	bool	isLegitMove;
+	bool	isCheck;
 
 	rook.initCoordinate(moveFrom, moveTo);
-	return (rook.checkMove(board));
+	isLegitMove = rook.checkMove(board);
+	isCheck = rook.isCheckToKing(board);
+	(color == 'w') ?
+	(checkToBlack = isCheck) :
+	(checkToWhite = isCheck);
+	return (isLegitMove);
 }
 
 bool Chess::goBishop(char current[3], char dest[3])
 {
-	Bishop bishop(current, dest, color);
+	Bishop	bishop(current, dest, color);
+	bool	isLegitMove;
+	bool	isCheck;
 
 	bishop.initCoordinate(moveFrom, moveTo);
-	return (bishop.checkMove(board));
+	isLegitMove = bishop.checkMove(board);
+	isCheck = bishop.isCheckToKing(board);
+	(color == 'w') ?
+	(checkToBlack = isCheck) :
+	(checkToWhite = isCheck);
+	return (isLegitMove);
 }
 
 bool Chess::goKnight(char current[3], char dest[3])
 {
-	Knight knight(current, dest, color);
+	Knight	knight(current, dest, color);
+	bool	isLegitMove;
+	bool	isCheck;
 
 	knight.initCoordinate(moveFrom, moveTo);
-	return (knight.checkMove(board));
+	isLegitMove = knight.checkMove(board);
+	isCheck = knight.isCheckToKing(board);
+	(color == 'w') ?
+	(checkToBlack = isCheck) :
+	(checkToWhite = isCheck);
+	return (isLegitMove);
 }
 
 bool Chess::goKing(char current[3], char dest[3])
 {
-	King king(current, dest, color);
+	King	king(current, dest, color);
+	bool	isLegitMove;
 
 	king.initCoordinate(moveFrom, moveTo);
-	return (king.checkMove(board));
+	isLegitMove = king.checkMove(board);
+	return (isLegitMove);
 }
 
 bool Chess::goQueen(char current[3], char dest[3])
 {
-	Queen queen(current, dest, color);
+	Queen	queen(current, dest, color);
+	bool	isLegitMove;
+	bool	isCheck;
 
 	queen.Rook::initCoordinate(moveFrom, moveTo);
-	if (queen.Rook::checkMove(board))
-		return (true);
-	else if (queen.Bishop::checkMove(board))
-		return (true);
-	return (false);
+	if (isLegitMove = queen.Rook::checkMove(board))
+		isCheck = queen.Rook::isCheckToKing(board);
+	else
+	{
+		isLegitMove = queen.Bishop::checkMove(board);
+		isCheck = queen.Bishop::isCheckToKing(board);
+	}
+	(color == 'w') ?
+	(checkToBlack = isCheck) : (checkToWhite = isCheck);
+	return (isLegitMove);
 }

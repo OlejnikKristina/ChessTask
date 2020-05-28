@@ -28,6 +28,8 @@ class	Chess
 	int						moveFrom[2];
 	int						moveTo[2];
 	char					color;
+	bool					checkToWhite;
+	bool					checkToBlack;
 
 	public:
 	map <string, char>		figsWhite;
