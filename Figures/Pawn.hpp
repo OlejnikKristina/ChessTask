@@ -13,6 +13,7 @@ class		Pawn: public Figure
 	bool		checkMove(char board[9][8]);
 	bool		checkMoveWhitePawn(char board[9][8]);
 	bool		checkMoveBlackPawn(char board[9][8]);
+	bool		isCheckToKing(char board[9][8]);
 };
 
 #endif

@@ -57,7 +57,6 @@ bool Rook::isCheckToKingLeft(char board[9][8], int x, int y, char foeKing)
 bool Rook::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
-	int		y, x;
 
 	foeKing = (color == 'w') ? BKING : KING;
 	return (

@@ -50,7 +50,7 @@ bool		Chess::getMove()
 
 bool		Chess::moveFigure(map <string, char> &figures)
 {
-	string	color = "color";
+	string	key = "color";
 	char	figure;
 	char	current[3];
 	char	dest[3];
@@ -58,18 +58,19 @@ bool		Chess::moveFigure(map <string, char> &figures)
 	strncpy(current, (char const *) currPos, 3);
 	strncpy(dest, (char const *) destPos, 3);
 	figure = figures[currPos];
+	color = figures[key];
 	if (figure == PAWN || figure == BPAWN)
-		return (goPawn(current, dest, figures[color]));
+		return (goPawn(current, dest));
 	else if (figure == BISHOP|| figure == BBISHOP)
-		return (goBishop(current, dest, figures[color]));
+		return (goBishop(current, dest));
 	else if (figure == KNIGHT || figure == BKNIGHT)
-		return (goKnight(current, dest, figures[color]));
+		return (goKnight(current, dest));
 	else if (figure == ROOK || figure == BROOK)
-		return (goRook(current, dest, figures[color]));
+		return (goRook(current, dest));
 	else if (figure == QUEEN || figure == BQUEEN)
-		return (goQueen(current, dest, figures[color]));
+		return (goQueen(current, dest));
 	else if (figure == KING || figure == BKING)
-		return (goKing(current, dest, figures[color]));
+		return (goKing(current, dest));
 	else
 	{
 		std::cout << "Ops.. [" << currPos << "] ";

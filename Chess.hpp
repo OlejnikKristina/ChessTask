@@ -27,6 +27,7 @@ class	Chess
 	char					destPos[3];
 	int						moveFrom[2];
 	int						moveTo[2];
+	char					color;
 
 	public:
 	map <string, char>		figsWhite;
@@ -50,12 +51,12 @@ class	Chess
 	bool	isBlackFigure(char figure);
 	void	gameRules();
 
-	bool	goPawn(char current[3], char dest[3], char color);
-	bool	goRook(char current[3], char dest[3], char color);
-	bool	goBishop(char current[3], char dest[3], char color);
-	bool	goKnight(char current[3], char dest[3], char color);
-	bool	goKing(char current[3], char dest[3], char color);
-	bool	goQueen(char current[3], char dest[3], char color);
+	bool	goPawn(char current[3], char dest[3]);
+	bool	goRook(char current[3], char dest[3]);
+	bool	goBishop(char current[3], char dest[3]);
+	bool	goKnight(char current[3], char dest[3]);
+	bool	goKing(char current[3], char dest[3]);
+	bool	goQueen(char current[3], char dest[3]);
 	/* Additional functions */
 	bool		isWhiteFigure(char figure);
 	

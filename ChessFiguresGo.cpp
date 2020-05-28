@@ -1,7 +1,7 @@
 
 #include "Chess.hpp"
 
-bool Chess::goPawn(char current[3], char dest[3], char color)
+bool Chess::goPawn(char current[3], char dest[3])
 {
 	Pawn pawn(current, dest, color);
 
@@ -9,7 +9,7 @@ bool Chess::goPawn(char current[3], char dest[3], char color)
 	return (pawn.checkMove(board));
 }
 
-bool Chess::goRook(char current[3], char dest[3], char color)
+bool Chess::goRook(char current[3], char dest[3])
 {
 	Rook rook(current, dest, color);
 
@@ -17,7 +17,7 @@ bool Chess::goRook(char current[3], char dest[3], char color)
 	return (rook.checkMove(board));
 }
 
-bool Chess::goBishop(char current[3], char dest[3], char color)
+bool Chess::goBishop(char current[3], char dest[3])
 {
 	Bishop bishop(current, dest, color);
 
@@ -25,7 +25,7 @@ bool Chess::goBishop(char current[3], char dest[3], char color)
 	return (bishop.checkMove(board));
 }
 
-bool Chess::goKnight(char current[3], char dest[3], char color)
+bool Chess::goKnight(char current[3], char dest[3])
 {
 	Knight knight(current, dest, color);
 
@@ -33,7 +33,7 @@ bool Chess::goKnight(char current[3], char dest[3], char color)
 	return (knight.checkMove(board));
 }
 
-bool Chess::goKing(char current[3], char dest[3], char color)
+bool Chess::goKing(char current[3], char dest[3])
 {
 	King king(current, dest, color);
 
@@ -41,7 +41,7 @@ bool Chess::goKing(char current[3], char dest[3], char color)
 	return (king.checkMove(board));
 }
 
-bool Chess::goQueen(char current[3], char dest[3], char color)
+bool Chess::goQueen(char current[3], char dest[3])
 {
 	Queen queen(current, dest, color);
 

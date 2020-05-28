@@ -5,7 +5,6 @@
 bool	Bishop::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
-	int		y, x;
 
 	foeKing = (color == 'w') ? BKING : KING;
 	return (
