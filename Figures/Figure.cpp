@@ -1,10 +1,15 @@
 
 #include "Figure.hpp"
 
-bool	Figure::preCheck(char destX, char destY, const char *figure)
+bool	Figure::preCheck(int destX, int destY, const char *figure)
 {
-	if (H < destX || 8 < destY)
+	string	allowedChar;
+
+	allowedChar = "abcdefgh";
+	if (7 < destX || destX < 0 || destY <= 0 || 8 < destY ||
+		allowedChar.find(destXY[0]) == string::npos)
 	{
+		std::cout << "RRRRx: " << destX << "Y: " << destY << '\0';
 		moveError(figure);
 		return (false);
 	}

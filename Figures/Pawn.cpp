@@ -66,9 +66,11 @@ bool	Pawn::checkMoveBlackPawn(char board[9][8])
 
 bool	Pawn::checkMove(char board[9][8])
 {
-	if (color == 'w')
+	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
+		return (false);
+	else if (color == 'w')
 		return (checkMoveWhitePawn(board));
-	else
+	else if (color == 'b')
 		return (checkMoveBlackPawn(board));
 	return (true);
 }

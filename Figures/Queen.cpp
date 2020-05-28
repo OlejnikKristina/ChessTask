@@ -10,5 +10,6 @@ Queen::Queen(char current[3], char dest[3], char fcolor)
 
 bool	Queen::checkMove(char board[9][8])
 {
+	
 	return (false);
 }

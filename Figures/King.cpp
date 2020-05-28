@@ -10,5 +10,7 @@ King::King(char current[3], char dest[3], char fcolor)
 
 bool	King::checkMove(char board[9][8])
 {
+	if (!preCheck(destPos[X], destPos[Y], "King"))
+		return (false);
 	return (false);
 }

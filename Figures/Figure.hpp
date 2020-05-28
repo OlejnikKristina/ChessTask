@@ -28,7 +28,7 @@ class	Figure
 	bool		isWhiteFigure(char figure);
 	bool		isBlackFigure(char figure);
 	void		initCoordinate(int moveFrom[2], int moveTo[2]);
-	bool		preCheck(char destX, char destY, const char *figure);
+	bool		preCheck(int destX, int destY, const char *figure);
 	bool		isFigure(char figure);
 };
 
