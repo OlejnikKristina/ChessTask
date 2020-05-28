@@ -11,7 +11,6 @@ class		Queen: public Bishop, public Rook
 	Queen();
 	~Queen();
 	Queen(char current[3], char dest[3], char fcolor);
-	// bool	checkMoveQueen(char board[9][8]);
 };
 
 #endif

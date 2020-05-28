@@ -45,15 +45,10 @@ bool Chess::goQueen(char current[3], char dest[3], char color)
 {
 	Queen queen(current, dest, color);
 
+	queen.Rook::initCoordinate(moveFrom, moveTo);
 	if (queen.Rook::checkMove(board))
-	{
-		queen.Rook::initCoordinate(moveFrom, moveTo);
 		return (true);
-	}
 	else if (queen.Bishop::checkMove(board))
-	{
-		queen.Bishop::initCoordinate(moveFrom, moveTo);
 		return (true);
-	}
 	return (false);
 }

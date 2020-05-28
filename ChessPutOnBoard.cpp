@@ -37,6 +37,8 @@ bool	Chess::putFigureOnBoard(char figure, std::map <string, char> &figures)
 	board[moveTo[Y]][moveTo[X]] = figure;
 	boardPrint();
 	updateFigureSpot(figures);
+	std::cout << "CurrX:" << currPos[X] << " currY:" << currPos[Y] \
+	<< " destX: " << destPos[X] << " destY:" << destPos[Y];
 	// show_figures(figures);
 	return (true);
 }

@@ -9,7 +9,7 @@ Rook::Rook(char current[3], char dest[3], char fcolor):Figure(current, dest, fco
 
 Rook::~Rook() {}
 
-bool	Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
+bool Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	for (int x = currPos[X] + 1, y = currPos[Y]; x <= destPos[X]; x++)
 	{
@@ -27,7 +27,7 @@ bool	Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 	return (true);
 }
 
-bool	Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
+bool Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	for (int x = currPos[X] - 1, y = currPos[Y]; destPos[X] <= x; x--)
 	{
@@ -45,7 +45,7 @@ bool	Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
 	return (true);
 }
 
-bool	Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
+bool Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	for (int y = currPos[Y] + 1, x = currPos[X]; y <= destPos[Y]; y++)
 	{
@@ -63,7 +63,7 @@ bool	Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
 	return (true);
 }
 
-bool	Rook::checkMoveDown(char board[9][8], bool(Figure::*isEnemy)(char))
+bool Rook::checkMoveDown(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	for (int y = currPos[Y] - 1, x = currPos[X]; destPos[Y] <= y; y--)
 	{
@@ -81,7 +81,7 @@ bool	Rook::checkMoveDown(char board[9][8], bool(Figure::*isEnemy)(char))
 	return (true);
 }
 
-bool	Rook::checkMove(char board[9][8])
+bool Rook::checkMove(char board[9][8])
 {
 	bool	(Figure::*isEnemy)(char);
 
