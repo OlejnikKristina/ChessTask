@@ -7,6 +7,8 @@ Rook::Rook(char current[3], char dest[3], char fcolor):Figure(current, dest, fco
 	std::cout << "I am Rook! x[" << currPos[0] << "] y[" << currPos[1] << "]\n";
 }
 
+Rook::~Rook() {}
+
 bool	Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	for (int x = currPos[X] + 1, y = currPos[Y]; x <= destPos[X]; x++)

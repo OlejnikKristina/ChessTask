@@ -8,6 +8,8 @@ Bishop::Bishop(char current[3], char dest[3], char fcolor)
 	std::cout << "I am Bishop! \n";
 }
 
+Bishop::~Bishop() {}
+
 bool	Bishop::checkDiagonalLeftUp(char board[9][8], bool(Figure::*isEnemy)(char))
 {
 	int		x, y;

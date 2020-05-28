@@ -1,6 +1,24 @@
 
 #include "Figure.hpp"
 
+Figure::Figure() {}
+
+Figure::~Figure(){}
+
+Figure::Figure(char current[3], char dest[3], char fcolor)
+{
+	destXY = dest;
+	currXY = current;
+	currPos[X] = putVal(current[0]);
+	current[X] = ' ';
+	currPos[Y] = atoi((const char *)&current[1]);
+	destPos[X] = putVal(dest[0]);
+	dest[X] = ' ';
+	destPos[Y] = atoi((const char *)&dest[1]);
+	color = fcolor;
+}
+
+
 bool	Figure::preCheck(int destX, int destY, const char *figure)
 {
 	string	allowedChar;
@@ -62,19 +80,4 @@ char		Figure::putVal(char val)
 	else if (val == 'g') return (G);
 	else if (val == 'h') return (H);
 	return ('\0');
-}
-
-Figure::Figure() {}
-
-Figure::Figure(char current[3], char dest[3], char fcolor)
-{
-	destXY = dest;
-	currXY = current;
-	currPos[X] = putVal(current[0]);
-	current[X] = ' ';
-	currPos[Y] = atoi((const char *)&current[1]);
-	destPos[X] = putVal(dest[0]);
-	dest[X] = ' ';
-	destPos[Y] = atoi((const char *)&dest[1]);
-	color = fcolor;
 }

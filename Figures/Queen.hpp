@@ -2,14 +2,16 @@
 #ifndef QUEEN_HPP
 #define QUEEN_HPP
 
-#include "Figure.hpp"
+#include "Bishop.hpp"
+#include "Rook.hpp"
 
-class		Queen: public Figure
+class		Queen: public Bishop, public Rook
 {
 	public:
 	Queen();
+	~Queen();
 	Queen(char current[3], char dest[3], char fcolor);
-	bool	checkMove(char board[9][8]);
+	// bool	checkMoveQueen(char board[9][8]);
 };
 
 #endif

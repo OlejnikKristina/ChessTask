@@ -8,6 +8,8 @@ Knight::Knight(char current[3], char dest[3], char fcolor)
 	std::cout << "I am Knight! x[" << destPos[X] << "] y[" << destPos[Y] << "] ";
 }
 
+Knight::~Knight(){}
+
 bool	Knight::checkWhiteKnight(char board[9][8])
 {
 	int x, y;

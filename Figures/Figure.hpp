@@ -22,6 +22,7 @@ class	Figure
 
 	public:
 	Figure();
+	~Figure();
 	Figure(char curretPos[3], char destPos[3], char color);
 	void		moveError(const char *figure, const char *extra = "\0");
 	char		putVal(char val);

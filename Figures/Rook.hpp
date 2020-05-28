@@ -4,10 +4,11 @@
 
 #include "Figure.hpp"
 
-class		Rook: public Figure
+class		Rook: public virtual Figure
 {
 	public:
 	Rook();
+	~Rook();
 	Rook(char current[3], char dest[3], char fcolor);
 	bool	checkMove(char board[9][8]);
 	bool	checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char));

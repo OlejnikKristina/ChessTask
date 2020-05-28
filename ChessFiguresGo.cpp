@@ -46,5 +46,5 @@ bool Chess::goQueen(char current[3], char dest[3], char color)
 	Queen queen(current, dest, color);
 
 	queen.initCoordinate(moveFrom, moveTo);
-	return (queen.checkMove(board));
+	return (queen.Bishop::checkMove(board) && queen.Rook::checkMove(board));
 }

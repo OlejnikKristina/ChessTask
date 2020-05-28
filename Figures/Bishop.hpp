@@ -4,10 +4,11 @@
 
 #include "Figure.hpp"
 
-class		Bishop: public Figure
+class		Bishop: public virtual Figure
 {
 	public:
 	Bishop();
+	~Bishop();
 	Bishop(char current[3], char dest[3], char fcolor);
 	bool	checkMove(char board[9][8]);
 	bool	checkDiagonalLeftUp(char board[9][8], bool(Figure::*isEnemy)(char));
