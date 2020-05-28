@@ -11,7 +11,8 @@ class		Knight: public Figure
 	~Knight();
 	Knight(char current[3], char dest[3], char fcolor);
 	bool	checkMove(char board[9][8]);
-	bool	isChekcToKing(char board[9][8]);
+	bool	isCheckToKing(char board[9][8]);
+	bool	doesKnightAttack(char board[9][8], int x, int y, char foeKing);
 };
 
 #endif
