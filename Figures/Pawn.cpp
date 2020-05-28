@@ -64,6 +64,27 @@ bool	Pawn::checkMoveBlackPawn(char board[9][8])
 	return (true);
 }
 
+bool	Pawn::isCheckToKing(char board[9][8])
+{
+	int	x, y;
+
+	x = destPos[X];
+	y = destPos[Y];
+	if (color == 'w')
+	{
+		return (
+		(board[y + 1][x + 1] == BKING) ||
+		(board[y + 1][x - 1] == BKING));
+	}
+	else
+	{
+		return (
+		(board[y + 1][x + 1] == KING) ||
+		(board[y + 1][x - 1] == KING));
+	}
+	return (false);
+}
+
 bool	Pawn::checkMove(char board[9][8])
 {
 	if (!preCheck(destPos[X], destPos[Y], "Pawn"))
