@@ -1,10 +1,11 @@
 # ♕♔ Console Chess
 
 Console chess was written in less than 5 days as a technical assignment for internship position in Luxoft company.<br>
-Technical requirements / limitations: Programming language: C++. External libraries: STL only
+With this application players can compete in chess directly in the console.
 <br>
 The program validates all legit chess moves (if a player wants to make a move that is not allowed by
 chess rules, the application must block such attempt and show corresponding notification).
+Technical requirements / limitations: Programming language: C++. External libraries: STL only
 <br>
 Now you can play with your friends in chess game from your console! Even Garry Kasparov would love to try it out. Enjoy.<br>
 <br><img alt="portfolio_view" src="https://github.com/OlejnikKristina/Filler-Visualization/blob/master/img/chess_giff.gif" style ="margin-left: 100px;">
