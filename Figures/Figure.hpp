@@ -21,6 +21,8 @@ class	Figure
 	string		currXY;
 
 	public:
+	string		figureName;
+
 	Figure();
 	~Figure();
 	Figure(char curretPos[3], char destPos[3], char color);

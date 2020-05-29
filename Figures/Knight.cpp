@@ -48,21 +48,21 @@ bool	Knight::checkMove(char board[9][8])
 	(&Figure::isBlackFigure) : (&Figure::isWhiteFigure);
 	if (!preCheck(destPos[X], destPos[Y], "Knight"))
 		return (false);
-	if (currPos[Y] - 2 == y && A <= x && x <= H
-		&& (currPos[X] + 1 == x  || currPos[X] - 1 == x)
-		&& (this->*isEnemy)(board[y][x]))
+	if (currPos[Y] - 2 == y && A <= x && x <= H &&
+	(currPos[X] + 1 == x  || currPos[X] - 1 == x) &&
+	((this->*isEnemy)(board[y][x]) || !isFigure(board[y][x])))
 		return (true);
-	else if (currPos[Y] - 1 == y && A <= x && x <= H
-		&& (currPos[X] + 2 == x  || currPos[X] - 2 == x)
-		&& (this->*isEnemy)(board[y][x]))
+	else if (currPos[Y] - 1 == y && A <= x && x <= H &&
+	(currPos[X] + 2 == x  || currPos[X] - 2 == x) &&
+	((this->*isEnemy)(board[y][x]) || !isFigure(board[y][x])))
 		return (true);
-		if (currPos[Y] + 2 == y && A <= x && x <= H
-		&& (currPos[X] + 1 == x  || currPos[X] - 1 == x)
-		&& (this->*isEnemy)(board[y][x]))
+	if (currPos[Y] + 2 == y && A <= x && x <= H &&
+	(currPos[X] + 1 == x  || currPos[X] - 1 == x) &&
+	((this->*isEnemy)(board[y][x]) || !isFigure(board[y][x])))
 		return (true);
-	else if (currPos[Y] + 1 == y && A <= x && x <= H
-		&& (currPos[X] + 2 == x  || currPos[X] - 2 == x)
-		&& (this->*isEnemy)(board[y][x]))
+	else if (currPos[Y] + 1 == y && A <= x && x <= H &&
+	(currPos[X] + 2 == x  || currPos[X] - 2 == x) &&
+	((this->*isEnemy)(board[y][x]) || !isFigure(board[y][x])))
 		return (true);
 	moveError("knight");
 	return (false);

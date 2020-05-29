@@ -5,7 +5,8 @@
 Bishop::Bishop(char current[3], char dest[3], char fcolor)
 	:Figure(current, dest, fcolor)
 {
-	std::cout << "I am Bishop! \n";
+	figureName = "Bishop";
+	std::cout << "I am" << figureName ;
 }
 
 Bishop::~Bishop() {}
@@ -26,7 +27,7 @@ bool	Bishop::checkDiagonalLeftUp(char board[9][8], bool(Figure::*isEnemy)(char))
 		x--;
 		y++;
 	}
-	moveError("Bishop Left Up");
+	moveError(figureName.c_str(), "Left Up");
 	return (false);
 }
 
@@ -46,7 +47,7 @@ bool	Bishop::checkDiagonalRightUp(char board[9][8], bool(Figure::*isEnemy)(char)
 		x++;
 		y++;
 	}
-	moveError("Bishop Right Up");
+	moveError(figureName.c_str(), "Obstacle onRight Up");
 	return (false);
 }
 
@@ -64,7 +65,7 @@ bool	Bishop::checkDiagonalLeftDown(char board[9][8], bool(Figure::*isEnemy)(char
 		else if (isFigure(board[y][x]))
 			break ;
 	}
-	moveError("Bishop", " Obstacle below on the left");
+	moveError(figureName.c_str(), " Obstacle below on the left");
 	return (false);
 }
 
@@ -82,7 +83,7 @@ bool	Bishop::checkDiagonalRightDown(char board[9][8], bool(Figure::*isEnemy)(cha
 		else if (isFigure(board[y][x]))
 			break ;
 	}
-	moveError("Bishop", ". Obstacle below on the right");
+	moveError(figureName.c_str(), ". Obstacle below on the right");
 	return (false);
 }
 

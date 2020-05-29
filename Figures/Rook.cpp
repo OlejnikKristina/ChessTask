@@ -4,7 +4,7 @@
 
 Rook::Rook(char current[3], char dest[3], char fcolor):Figure(current, dest, fcolor)
 {
-	std::cout << "I am Rook! x[" << currPos[X] << "] y[" << currPos[Y] << "]\n";
+	figureName = "Rook";
 }
 
 Rook::~Rook() {}
@@ -20,7 +20,7 @@ bool Rook::checkMoveRight(char board[9][8], bool(Figure::*isEnemy)(char))
 		}
 		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
 		{
-			moveError("Rook", "Obstacal from right");
+			moveError(figureName.c_str(), "Obstacal from right");
 			return (false);
 		}
 	}
@@ -33,12 +33,12 @@ bool Rook::checkMoveLeft(char board[9][8], bool(Figure::*isEnemy)(char))
 	{
 		if (x == destPos[X] && (this->*isEnemy)(board[y][x]))
 		{
-			std::cout << "Rook", " Fight for the Queen!";
+			std::cout << figureName.c_str(), " Fight for the Queen!";
 			return (true);
 		}
 		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
 		{
-			moveError("Rook", " Obstacal from right");
+			moveError(figureName.c_str(), " Obstacal from right");
 			return (false);
 		}
 	}
@@ -56,7 +56,7 @@ bool Rook::checkMoveUp(char board[9][8], bool(Figure::*isEnemy)(char))
 		}
 		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
 		{
-			moveError("Rook", " Obstacal adove");
+			moveError(figureName.c_str(), " Obstacal adove");
 			return (false);
 		}
 	}
@@ -74,7 +74,7 @@ bool Rook::checkMoveDown(char board[9][8], bool(Figure::*isEnemy)(char))
 		}
 		else if (isWhiteFigure(board[y][x]) || isBlackFigure(board[y][x]))
 		{
-			moveError("Rook", " Obstacal below");
+			moveError(figureName.c_str(), " Obstacal below");
 			return (false);
 		}
 	}
@@ -87,7 +87,7 @@ bool Rook::checkMove(char board[9][8])
 
 	isEnemy = (color == 'w') ?
 	(&Figure::isBlackFigure):(&Figure::isWhiteFigure);
-	if (!preCheck(destPos[X], destPos[Y], "Rook"))
+	if (!preCheck(destPos[X], destPos[Y], figureName.c_str()))
 		return (false);
 	if (currPos[Y] == destPos[Y] && currPos[X] > destPos[X])
 		return (checkMoveLeft(board, isEnemy));
@@ -99,7 +99,7 @@ bool Rook::checkMove(char board[9][8])
 		return (checkMoveDown(board, isEnemy));
 	else
 	{
-		moveError("Rook");
+		moveError(figureName.c_str());
 		return (false);
 	}
 	return (true);

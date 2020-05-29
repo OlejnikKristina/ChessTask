@@ -41,8 +41,11 @@ bool	Figure::preCheck(int destX, int destY, const char *figure)
 
 void	Figure::moveError(const char *figure, const char *extra)
 {
-	std::cout << RED <<"Illegal move for " << figure << extra;
-	std::cout << ". Try again.\n" << RESET;
+	if (figureName[0] != 'Q')
+	{
+		std::cout << RED <<"Illegal move for " << figure << extra;
+		std::cout << ". Try again.\n" << RESET;
+	}
 }
 
 void	Figure::initCoordinate(int moveFrom[2], int moveTo[2])

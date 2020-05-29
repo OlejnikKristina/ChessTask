@@ -22,26 +22,28 @@ using std::map;
 
 class	Chess
 {
-	private:
-	char					currPos[3];
-	char					destPos[3];
-	int						moveFrom[2];
-	int						moveTo[2];
-	char					color;
-	bool					checkToWhite;
-	bool					checkToBlack;
-
 	public:
-	map <string, char>		figsWhite;
-	map <string, char>		figsBlack;
-	char					board[9][8];
-
+	char	getWinner();
 	Chess();
+	~Chess();
+
+	private:
+	char				board[9][8];
+	char				currPos[3];
+	char				destPos[3];
+	char				color;
+	bool				checkToWhite;
+	bool				checkToBlack;
+	char				winner;
+	map <string, char>	figsWhite;
+	map <string, char>	figsBlack;
+	int					moveFrom[2];
+	int					moveTo[2];
+
 	void	figuresInit();
 	void	boardInit();
 	void	boardSetToZero();
 	void	boardPrint();
-
 	bool	runGame();
 	bool	getMove();
 	bool	substructMove(char move[], char direction[3]);
@@ -52,16 +54,13 @@ class	Chess
 			std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
 	void	gameRules();
-
 	bool	goPawn(char current[3], char dest[3]);
 	bool	goRook(char current[3], char dest[3]);
 	bool	goBishop(char current[3], char dest[3]);
 	bool	goKnight(char current[3], char dest[3]);
 	bool	goKing(char current[3], char dest[3]);
 	bool	goQueen(char current[3], char dest[3]);
-	/* Additional functions */
-	bool		isWhiteFigure(char figure);
-	
+	bool	isWhiteFigure(char figure);
 };
 
 /*	figsWhite[key][val], figsBlack [key][val]

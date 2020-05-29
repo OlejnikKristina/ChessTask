@@ -79,8 +79,8 @@ bool	Pawn::isCheckToKing(char board[9][8])
 	else
 	{
 		return (
-		(board[y + 1][x + 1] == KING) ||
-		(board[y + 1][x - 1] == KING));
+		(board[y - 1][x + 1] == KING) ||
+		(board[y - 1][x - 1] == KING));
 	}
 	return (false);
 }

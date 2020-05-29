@@ -82,17 +82,17 @@ bool		Chess::moveFigure(map <string, char> &figures)
 
 bool		Chess::runGame()
 {
-	for (int i = 0; i < 7; i++)
+	while (winner == false)
 	{
 		std::cout << "  ** White's turn **\n";
 		while (!getMove() || !moveFigure(figsWhite))
 			;
-		if (checkToBlack) std::cout << "Check to black!\n";
 		putFigureOnBoard(figsWhite[currPos], figsWhite);
+		checkToWhite = false;
 		std::cout << "  ** Black's turn **\n";
 		while (!getMove() || !moveFigure(figsBlack))
 			;
-		if (checkToWhite) std::cout << "Check to white!\n";
 		putFigureOnBoard(figsBlack[currPos], figsBlack);
+		checkToBlack = false;
 	}
 }
