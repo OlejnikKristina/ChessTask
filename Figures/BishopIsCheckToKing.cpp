@@ -6,7 +6,8 @@ bool	Bishop::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
 
-	foeKing = (color == 'w') ? BKING : KING;
+	if (color == 'w') foeKing = BKING;
+	else if (color == 'b') foeKing = KING;
 	return (
 		isCheckToKingDiagRightUp(board, destPos[X] + 1, destPos[Y] + 1, foeKing) ||
 		isCheckToKingDiagRightDown(board, destPos[X] + 1, destPos[Y] - 1, foeKing) ||

@@ -95,7 +95,7 @@ bool	Chess::moveFigure(map <string, char> &figures)
 		return (goKing(current, dest));
 	else
 	{
-		std::cout << "Ops.. [" << currPos << "] ";
+		std::cout << " Ops.. [" << currPos << "] ";
 		std::cout << "No such a figure on a board. Try again.\n";
 		return (false);
 	}

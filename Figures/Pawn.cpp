@@ -18,16 +18,16 @@ bool	Pawn::checkMoveWhitePawn(char board[9][8])
 	if (!preCheck(x, y, "Pawn"))
 		return (false);
 	else if (currPos[X] == x && (currPos[Y] == y - 1) && !isFigure(board[y][x]))
-		std::cout << "  White pawn is moving.\n";
+		std::cout << " White pawn is moving.\n";
 	else if (currPos[X] == x && (currPos[Y] == 2 && 4 == y)
 		&& !isFigure(board[3][x]) && !isFigure(board[4][x]))
-		std::cout << "  I am going be the Queen!\n";
+		std::cout << " I am going be the Queen!\n";
 	else if (currPos[X] != H && x == currPos[X] + 1 && y == currPos[Y] + 1
 		&& isBlackFigure(board[y][x]))
-		std::cout << "  White pawn attacks from left!\n";
+		std::cout << " White pawn attacks from left!\n";
 	else if (currPos[X] != A && x == currPos[X] - 1 && y == currPos[Y] + 1
 		&& isBlackFigure(board[y][x]))
-		std::cout << "  White pawn attacks from right!\n";
+		std::cout << " White pawn attacks from right!\n";
 	else
 	{
 		moveError("Pawn");

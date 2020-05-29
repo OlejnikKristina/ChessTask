@@ -39,9 +39,9 @@ bool	Figure::preCheck(int destX, int destY, const char *figure)
 
 void	Figure::moveError(const char *figure, const char *extra)
 {
-	if (figureName[0] != 'Q')
+	if (figureName != "Queen")
 	{
-		std::cout << RED <<"Illegal move for " << figure << extra;
+		std::cout << RED <<" Illegal move for " << figure << extra;
 		std::cout << ". Try again.\n" << RESET;
 	}
 }

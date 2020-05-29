@@ -11,6 +11,7 @@ bool	Knight::doesKnightAttack(char board[9][8], int x, int y, char foeKing)
 {
 	if (0 <= x && x <= 7 && 1 <= y && y <= 8)
 		return ((board[y][x] == foeKing));
+	return (false);
 }
 
 /*  Check all of the 8 possible position for an opponent's King */
@@ -19,7 +20,10 @@ bool	Knight::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
 
-	foeKing = (color == 'w') ? BKING : KING;
+	if (color == 'w')
+		foeKing = BKING;
+	else if (color == 'b')
+		foeKing = KING;
 	return (
 		doesKnightAttack(board, destPos[X] + 1, destPos[Y] + 2, foeKing) ||
 		doesKnightAttack(board, destPos[X] - 1, destPos[Y] + 2, foeKing) ||

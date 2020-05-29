@@ -88,8 +88,8 @@ bool Chess::goQueen(char current[3], char dest[3])
 		isCheck = queen.Bishop::isCheckToKing(board);
 	(color == 'w') ?
 	(checkToBlack = isCheck) : (checkToWhite = isCheck);
-	if (isCheck == false)
-		std::cout << RED << "Illegal move for Queen."
+	if (isLegitMove == false)
+		std::cout << RED << " Illegal move for Queen."
 		<< "Try again. \n" << RESET ;
 	return (isLegitMove);
 }
