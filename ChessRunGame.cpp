@@ -1,6 +1,13 @@
 
 #include "Chess.hpp"
 
+bool		Chess::saveGame()
+{
+	std::cout << "  **  Sorry but, this option is not \
+available now. =*( Comming soon. =D	\n";
+	return (false);
+}
+
 void		Chess::gameRules()
 {
 	std::cout << BLUE <<
@@ -9,8 +16,12 @@ void		Chess::gameRules()
 other in following format:\n\
   **  [current figure spot] [destination figure spot]\n\
   **  For example: e2 e4\n\
-  **  Will move one of the white pawn 2 spots up\n" << BLUE \
-<< "		Type: 'exit' to finish game\n" << RESET;
+  **  Will move one of the white pawn 2 spots up\n" << BLUE
+<< MAGENTA << " Options:\n" << GREEN <<
+"  'exit'"<< BLUE << " to finish game\n" << GREEN <<
+"  'start game'" << BLUE << " to start a new game\n" << GREEN <<
+"  'load game'" << BLUE << " to load a previosly saved game\n" << GREEN <<
+"  'save game'" << BLUE << " to save a game\n" << RESET;
 }
 
 bool		Chess::substructMove(char move[], char direction[3])
@@ -44,6 +55,8 @@ bool		Chess::getMove()
 	std::cin.getline(move, 42);
 	if (strcmp(move, "exit") == 0)
 		exit(0);
+	else if (strcmp(move, "save game") == 0)
+		return (saveGame());
 	else if (!substructMove(move, currPos))
 		return (false);
 	else if (!substructMove(&move[2], destPos))

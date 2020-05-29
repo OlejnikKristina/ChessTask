@@ -12,6 +12,44 @@ char	Chess::getWinner()
 	return (winner);
 }
 
+Chess::~Chess() {}
+
+bool	Chess::readOption()
+{
+	char	option[42];
+	bool	result;
+
+	result = false;
+	while (result == false)
+	{
+		std::cout << BLUE << "Type option: " << MAGENTA;
+		std::cin.getline(option, 42);
+		if(strcmp((const char *)option, "start game") == 0)
+		{
+			std::cout << "\n  ** Let's start the game!";
+			result = true;
+		}
+		else if (strcmp((const char *)option, "exit") == 0)
+		{
+			std::cout << "Bye, bye!\n" << RESET;
+			exit(0);
+		}
+		else if(strcmp((const char *)option, "save game") == 0)
+		{
+			std::cout <<  "Start the game, before save it.\n";
+		}
+		else if(strcmp((const char *)option, "load game") == 0)
+		{
+			std::cout << "Sorry, this option " <<
+			"is not available at this moment =*(\n";
+		}
+		else
+			std::cout << "Hint, type 'start game'\n";
+		std::cout << RESET;
+	}
+	return (true);
+}
+
 void	Chess::boardPrint()
 {
 	std::cout << "\n     ._.._.._.._.._.._.._.._.\n";
@@ -104,17 +142,13 @@ void	Chess::figuresInit()
 	figsBlack["e8"] = BKING;
 }
 
-Chess::~Chess()
-{
-	getWinner();
-}
-
 Chess::Chess()
 {
 	winner = '\0';
 	gameRules();
 	figuresInit();
 	boardInit();
+	readOption();
 	boardPrint();
 	runGame();
 }

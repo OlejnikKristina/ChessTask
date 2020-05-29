@@ -46,6 +46,8 @@ class	Chess
 	void	boardPrint();
 	bool	runGame();
 	bool	getMove();
+	bool	saveGame();
+	bool	readOption();
 	bool	substructMove(char move[], char direction[3]);
 	bool	moveFigure(map <string, char> &figures);
 	void	updateFigureSpot(std::map <string, char> &figures);
