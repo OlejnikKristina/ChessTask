@@ -89,7 +89,7 @@ bool Chess::goQueen(char current[3], char dest[3])
 	(color == 'w') ?
 	(checkToBlack = isCheck) : (checkToWhite = isCheck);
 	if (isCheck == false)
-		std::cout << RED << "Illegal move for Queen. \
-		Try again. \n" << RESET ;
+		std::cout << RED << "Illegal move for Queen."
+		<< "Try again. \n" << RESET ;
 	return (isLegitMove);
 }

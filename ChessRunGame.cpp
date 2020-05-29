@@ -1,14 +1,14 @@
 
 #include "Chess.hpp"
 
-bool		Chess::saveGame()
+bool	Chess::saveGame()
 {
-	std::cout << "  **  Sorry but, this option is not \
-available now. =*( Comming soon. =D	\n";
+	std::cout << "  **  Sorry but, this option is not"
+	<< "available now. =*( Comming soon. =D	\n";
 	return (false);
 }
 
-void		Chess::gameRules()
+void	Chess::gameRules()
 {
 	std::cout << BLUE <<
 "\n    **  Wellcome to console chess game  **\n" << YELLOW
@@ -18,13 +18,14 @@ other in following format:\n\
   **  For example: e2 e4\n\
   **  Will move one of the white pawn 2 spots up\n" << BLUE
 << MAGENTA << " Options:\n" << GREEN <<
-"  'exit'"<< BLUE << " to finish game\n" << GREEN <<
 "  'start game'" << BLUE << " to start a new game\n" << GREEN <<
+"  'restart game'" << BLUE << " to start a new game\n" << GREEN <<
 "  'load game'" << BLUE << " to load a previosly saved game\n" << GREEN <<
-"  'save game'" << BLUE << " to save a game\n" << RESET;
+"  'save game'" << BLUE << " to save a game\n" << GREEN <<
+"  'exit'"<< BLUE << " to finish game\n" << RESET;
 }
 
-bool		Chess::substructMove(char move[], char direction[3])
+bool	Chess::substructMove(char move[], char direction[3])
 {
 	int		i;
 
@@ -47,14 +48,19 @@ bool		Chess::substructMove(char move[], char direction[3])
 	return (true);
 }
 
-bool		Chess::getMove()
+bool	Chess::getMove()
 {
-	char		move[42];
+	char	move[42];
 
 	std::cout << GREEN << " Enter move: " << RESET;
 	std::cin.getline(move, 42);
 	if (strcmp(move, "exit") == 0)
 		exit(0);
+	else if (strcmp(move, "restart game") == 0)
+	{
+		Chess();
+		exit(0);
+	}
 	else if (strcmp(move, "save game") == 0)
 		return (saveGame());
 	else if (!substructMove(move, currPos))
@@ -64,7 +70,7 @@ bool		Chess::getMove()
 	return (true);
 }
 
-bool		Chess::moveFigure(map <string, char> &figures)
+bool	Chess::moveFigure(map <string, char> &figures)
 {
 	string	key = "color";
 	char	figure;
@@ -96,7 +102,7 @@ bool		Chess::moveFigure(map <string, char> &figures)
 	return (true);
 }
 
-bool		Chess::runGame()
+bool	Chess::runGame()
 {
 	while (winner == false)
 	{

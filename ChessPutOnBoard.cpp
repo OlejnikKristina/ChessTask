@@ -1,19 +1,19 @@
 
 #include "Chess.hpp"
 
-void		Chess::show_figures(std::map <string, char> figures)
+void	Chess::show_figures(std::map <string, char> figures)
 {
 	map<string, char>::iterator it;
 
 	it = figures.begin();
 	while (it != figures.end())
 	{
-		cout << "key: "<< it->first << " val: " << it->second << '\n';
+		std::cout << "key: "<< it->first << " val: " << it->second << '\n';
 		it++;
 	}
 }
 
-void		Chess::updateFigureSpot(std::map <string, char> &figures)
+void	Chess::updateFigureSpot(std::map <string, char> &figures)
 {
 	char		tempFigure;
 	string		exSpot;
@@ -41,6 +41,5 @@ bool	Chess::putFigureOnBoard(char figure, std::map <string, char> &figures)
 		std::cout << BLUE << "  ** Check to black! **" << RESET << '\n';
 	else if (checkToWhite)
 		std::cout << BLUE << "  ** Check to white! **" << RESET <<'\n';
-	// show_figures(figures);
 	return (true);
 }

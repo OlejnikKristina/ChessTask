@@ -17,7 +17,6 @@
 #include "Pawn.hpp"
 
 using std::string;
-using std::cout;
 using std::map;
 
 class	Chess
@@ -52,8 +51,7 @@ class	Chess
 	bool	moveFigure(map <string, char> &figures);
 	void	updateFigureSpot(std::map <string, char> &figures);
 	void	show_figures(std::map <string, char> figures);
-	bool	putFigureOnBoard(char color, \
-			std::map <string, char> &figures);
+	bool	putFigureOnBoard(char color, std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
 	void	gameRules();
 	bool	goPawn(char current[3], char dest[3]);

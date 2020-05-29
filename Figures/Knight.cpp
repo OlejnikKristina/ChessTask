@@ -3,10 +3,7 @@
 #include "Figure.hpp"
 
 Knight::Knight(char current[3], char dest[3], char fcolor)
-	:Figure(current, dest, fcolor)
-{
-	std::cout << "I am Knight! x[" << destPos[X] << "] y[" << destPos[Y] << "] ";
-}
+	:Figure(current, dest, fcolor) {}
 
 Knight::~Knight(){}
 
@@ -16,9 +13,7 @@ bool	Knight::doesKnightAttack(char board[9][8], int x, int y, char foeKing)
 		return ((board[y][x] == foeKing));
 }
 
-/*
-**  Check all 8 possible position if there are an opponent's King
-*/
+/*  Check all of the 8 possible position for an opponent's King */
 
 bool	Knight::isCheckToKing(char board[9][8])
 {

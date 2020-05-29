@@ -3,10 +3,9 @@
 #include "Figure.hpp"
 
 Bishop::Bishop(char current[3], char dest[3], char fcolor)
-	:Figure(current, dest, fcolor)
+		:Figure(current, dest, fcolor)
 {
 	figureName = "Bishop";
-	std::cout << "I am" << figureName ;
 }
 
 Bishop::~Bishop() {}
@@ -47,7 +46,7 @@ bool	Bishop::checkDiagonalRightUp(char board[9][8], bool(Figure::*isEnemy)(char)
 		x++;
 		y++;
 	}
-	moveError(figureName.c_str(), "Obstacle onRight Up");
+	moveError(figureName.c_str(), "Obstacle up from right");
 	return (false);
 }
 
