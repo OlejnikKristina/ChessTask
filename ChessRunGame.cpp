@@ -3,13 +3,14 @@
 
 void		Chess::gameRules()
 {
-	std::cout << YELLOW <<
-	"\n    **  Wellcome to console chess game  **\n\
-  **  Two players should enter moves one after \
+	std::cout << BLUE <<
+"\n    **  Wellcome to console chess game  **\n" << YELLOW
+<< "  **  Two players should enter moves one after \
 other in following format:\n\
   **  [current figure spot] [destination figure spot]\n\
   **  For example: e2 e4\n\
-  **  Will move one of the white pawn 2 spots up\n" << RESET;
+  **  Will move one of the white pawn 2 spots up\n" << BLUE \
+<< "		Type: 'exit' to finish game\n" << RESET;
 }
 
 bool		Chess::substructMove(char move[], char direction[3])
@@ -39,11 +40,13 @@ bool		Chess::getMove()
 {
 	char		move[42];
 
-	std::cout << " Enter move: ";
+	std::cout << GREEN << " Enter move: " << RESET;
 	std::cin.getline(move, 42);
-	if (!substructMove(move, currPos))
+	if (strcmp(move, "exit") == 0)
+		exit(0);
+	else if (!substructMove(move, currPos))
 		return (false);
-	if (!substructMove(&move[2], destPos))
+	else if (!substructMove(&move[2], destPos))
 		return (false);
 	return (true);
 }
@@ -95,4 +98,5 @@ bool		Chess::runGame()
 		putFigureOnBoard(figsBlack[currPos], figsBlack);
 		checkToBlack = false;
 	}
+	getWinner();
 }
