@@ -22,6 +22,7 @@ using std::map;
 class	Chess
 {
 	public:
+	bool	runGame();
 	char	getWinner();
 	Chess();
 	~Chess();
@@ -43,7 +44,6 @@ class	Chess
 	void	boardInit();
 	void	boardSetToZero();
 	void	boardPrint();
-	bool	runGame();
 	bool	getMove();
 	bool	saveGame();
 	bool	readOption();
@@ -54,10 +54,7 @@ class	Chess
 	bool	putFigureOnBoard(char color, std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
 	void	gameRules();
-	bool	goPawn(char current[3], char dest[3]);
-	bool	goRook(char current[3], char dest[3]);
-	bool	goBishop(char current[3], char dest[3]);
-	bool	goKnight(char current[3], char dest[3]);
+	bool	goFigure(Figure *figure);
 	bool	goKing(char current[3], char dest[3]);
 	bool	goQueen(char current[3], char dest[3]);
 	bool	isWhiteFigure(char figure);

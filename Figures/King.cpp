@@ -5,6 +5,11 @@
 King::King(char current[3], char dest[3], char fcolor)
 	:Figure(current, dest, fcolor){}
 
+bool	King::isCheckToKing(char board[9][8])
+{
+	return (false);
+}
+
 bool	King::checkMate(char board[9][8])
 {
 	int x, y;

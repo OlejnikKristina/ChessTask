@@ -10,7 +10,7 @@ class		Pawn: public Figure
 	Pawn();
 	~Pawn();
 	Pawn(char current[3], char dest[3], char color);
-	bool		checkMove(char board[9][8]);
+	bool		checkMove(char board[9][8]) override;
 	bool		checkMoveWhitePawn(char board[9][8]);
 	bool		checkMoveBlackPawn(char board[9][8]);
 	bool		isCheckToKing(char board[9][8]);

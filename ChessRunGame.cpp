@@ -82,13 +82,25 @@ bool	Chess::moveFigure(map <string, char> &figures)
 	figure = figures[currPos];
 	color = figures[key];
 	if (figure == PAWN || figure == BPAWN)
-		return (goPawn(current, dest));
+	{
+		Pawn pawn(current, dest, color);
+		return (goFigure(&pawn));
+	}
 	else if (figure == BISHOP|| figure == BBISHOP)
-		return (goBishop(current, dest));
+	{
+		Bishop bishop(current, dest, color);
+		return (goFigure(&bishop));
+	}
 	else if (figure == KNIGHT || figure == BKNIGHT)
-		return (goKnight(current, dest));
+	{
+		Knight knight(current, dest, color);
+		return (goFigure(&knight));
+	}
 	else if (figure == ROOK || figure == BROOK)
-		return (goRook(current, dest));
+	{
+		Rook rook(current, dest, color);
+		return (goFigure(&rook));
+	}
 	else if (figure == QUEEN || figure == BQUEEN)
 		return (goQueen(current, dest));
 	else if (figure == KING || figure == BKING)

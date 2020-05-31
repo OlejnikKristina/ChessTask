@@ -1,4 +1,3 @@
-
 NAME		:= Chess
 COMPILER	:= g++
 
@@ -17,4 +16,3 @@ fclean:
 	rm -f $(NAME)
 
 re: fclean make
-
