@@ -1,7 +1,6 @@
 # ♕♔ Console Chess
 
-Console chess was written in less than 5 days as a technical assignment for internship position in Luxoft company.<br>
-With this application players can compete in chess directly in the console.
+With console chess application players can compete in chess directly in the console.
 <br>
 The program validates all legit chess moves (if a player wants to make a move that is not allowed by
 chess rules, the application must block such attempt and show corresponding notification).<br>
