@@ -25,10 +25,16 @@ bool	Chess::readOption()
 		std::cout << BLUE << "Type option: " << MAGENTA;
 		std::cin.getline(option, 42);
 		if(strcmp((const char *)option, "start game") == 0 ||
-			strcmp((const char *)option, "restart game"))
+			strcmp((const char *)option, "restart game") == 0)
 		{
 			std::cout << "\n  ** Let's start the game!";
 			result = true;
+		}
+		else if(strcmp((const char *)option, "load game") == 0)
+		{
+			// std::cout << "Sorry, this option " <<
+			// "is not available at this moment =*(\n";
+			loadGame();
 		}
 		else if (strcmp((const char *)option, "exit") == 0)
 		{
@@ -38,11 +44,6 @@ bool	Chess::readOption()
 		else if(strcmp((const char *)option, "save game") == 0)
 		{
 			std::cout <<  "Start the game, before save it.\n";
-		}
-		else if(strcmp((const char *)option, "load game") == 0)
-		{
-			std::cout << "Sorry, this option " <<
-			"is not available at this moment =*(\n";
 		}
 		else
 			std::cout << "Hint, type 'start game'\n";
@@ -119,7 +120,6 @@ void	Chess::figuresInit()
 {
 	string	letter;
 	string	color = "color";
-	map <string, char> ::iterator it;
 
 	figsWhite[color] = 'w';
 	figsBlack[color] = 'b';

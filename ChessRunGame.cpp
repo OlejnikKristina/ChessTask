@@ -1,13 +1,6 @@
 
 #include "Chess.hpp"
 
-bool	Chess::saveGame()
-{
-	std::cout << "  **  Sorry but, this option is not"
-	<< "available now. =*( Comming soon. =D	\n";
-	return (false);
-}
-
 void	Chess::gameRules()
 {
 	std::cout << BLUE <<

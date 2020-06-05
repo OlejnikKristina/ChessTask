@@ -6,6 +6,7 @@
 #include <string>
 #include <map>
 #include <ctype.h>
+#include <fstream>
 
 #include "Figure.hpp"
 #include "shortcuts.hpp"
@@ -15,6 +16,9 @@
 #include "Bishop.hpp"
 #include "Knight.hpp"
 #include "Pawn.hpp"
+
+#define PATH "./saved_games/"
+#define GAME_LIST "./saved_games/games_list.txt"
 
 using std::string;
 using std::map;
@@ -58,6 +62,12 @@ class	Chess
 	bool	goKing(char current[3], char dest[3]);
 	bool	goQueen(char current[3], char dest[3]);
 	bool	isWhiteFigure(char figure);
+/*	**		Save game	**	*/
+	void	addGameToList(string gameToSave);
+	void	saveFigures(std::ofstream *newGameFile, map <string, char> figures);
+	void	showAvilableGames();
+	bool	isGameSaved(string gameName);
+	bool	loadGame();
 };
 
 /*	figsWhite[key][val], figsBlack [key][val]
