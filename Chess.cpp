@@ -28,13 +28,14 @@ bool	Chess::readOption()
 			strcmp((const char *)option, "restart game") == 0)
 		{
 			std::cout << "\n  ** Let's start the game!";
+			figuresInit();
+			boardInit();
 			result = true;
 		}
 		else if(strcmp((const char *)option, "load game") == 0)
 		{
-			// std::cout << "Sorry, this option " <<
-			// "is not available at this moment =*(\n";
 			loadGame();
+			result = true;
 		}
 		else if (strcmp((const char *)option, "exit") == 0)
 		{
@@ -145,8 +146,6 @@ Chess::Chess()
 {
 	winner = '\0';
 	gameRules();
-	figuresInit();
-	boardInit();
 	readOption();
 	boardPrint();
 	runGame();

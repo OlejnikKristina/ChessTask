@@ -67,6 +67,10 @@ class	Chess
 	void	saveFigures(std::ofstream *newGameFile, map <string, char> figures);
 	void	showAvilableGames();
 	bool	isGameSaved(string gameName);
+	bool	openLoadedGame(char gameName[], std::ifstream &loadeGame);
+	void	loadBoard(std::ifstream &loadedGame);
+	void	loadFigures(char gamePath[], std::ifstream &gameToLoad,\
+			map <string, char> &figures, char color);
 	bool	loadGame();
 };
 
