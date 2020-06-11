@@ -1,5 +1,5 @@
 
-#include "Chess.hpp"
+#include "../Chess.hpp"
 
 bool	Chess::isBlackFigure(char figure)
 {

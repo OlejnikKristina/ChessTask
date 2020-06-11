@@ -8,14 +8,14 @@
 #include <ctype.h>
 #include <fstream>
 
-#include "Figure.hpp"
+#include "./Figures/Figure.hpp"
 #include "shortcuts.hpp"
-#include "Queen.hpp"
-#include "King.hpp"
-#include "Rook.hpp"
-#include "Bishop.hpp"
-#include "Knight.hpp"
-#include "Pawn.hpp"
+#include "./Figures/Queen.hpp"
+#include "./Figures/King.hpp"
+#include "./Figures/Rook.hpp"
+#include "./Figures/Bishop.hpp"
+#include "./Figures/Knight.hpp"
+#include "./Figures/Pawn.hpp"
 
 #define PATH "./saved_games/"
 #define GAME_LIST "./saved_games/games_list.txt"

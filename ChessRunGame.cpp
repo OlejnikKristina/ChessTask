@@ -69,7 +69,7 @@ bool	Chess::moveFigure(map <string, char> &figures)
 	char	figure;
 	char	current[3];
 	char	dest[3];
-
+	show_figures(figures);			//TEST
 	strncpy(current, (char const *) currPos, 3);
 	strncpy(dest, (char const *) destPos, 3);
 	figure = figures[currPos];

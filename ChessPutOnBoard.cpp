@@ -8,7 +8,7 @@ void	Chess::show_figures(std::map <string, char> figures)
 	it = figures.begin();
 	while (it != figures.end())
 	{
-		std::cout << "key: "<< it->first << " val: " << it->second << '\n';
+		std::cout << "key:["<< it->first << "] val:[" << it->second << "] \n";
 		it++;
 	}
 }
