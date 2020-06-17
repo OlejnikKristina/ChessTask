@@ -36,6 +36,7 @@ bool		StockfishBot::sendRequest()
 	if (!send.is_open())
 	{
 		std::cout << RED << "Fail to open: " << FILE_SEND;
+		exit(0);
 		return (false);
 	}
 	send << movesSet << '\n' << "go\n";
@@ -53,6 +54,7 @@ std::string	StockfishBot::reciveAnsswer()
 	if (!recive.is_open())
 	{
 		std::cout << RED << "Fail to open: " << FILE_RECIVE;
+		exit(0);
 		return (NULL);
 	}
 	while (getline(recive, ansswer))
