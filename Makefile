@@ -26,6 +26,7 @@ $(BOT):
 clean:
 	@rm -f $(OBJ) $(OBJ_EXTRA)
 	@echo "\033[0;32mDeleted objects files\033[0m"
+	@make -C ./StockfishLinuxBot/ -s clean
 
 fclean: clean
 	@rm -f $(NAME)
