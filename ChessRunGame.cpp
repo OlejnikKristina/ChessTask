@@ -115,7 +115,7 @@ bool	Chess::moveFigure(map <string, char> &figures)
 	return (true);
 }
 
-bool	Chess::runGame()
+void	Chess::runGame()
 {
 	while (winner == false)
 	{

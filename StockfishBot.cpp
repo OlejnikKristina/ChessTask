@@ -30,9 +30,8 @@ char		StockfishBot::getBotColor()
 
 bool		StockfishBot::sendRequest()
 {
-	std::ofstream	send; // File for IPC. Send moveSet to bot
+	std::ofstream	send(FILE_SEND); // File for IPC. Send moveSet to bot
 	
-	send.open(FILE_SEND);
 	if (!send.is_open())
 	{
 		std::cout << RED << "Fail to open: " << FILE_SEND;
@@ -46,11 +45,10 @@ bool		StockfishBot::sendRequest()
 
 std::string	StockfishBot::reciveAnsswer()
 {
-	std::ifstream	recive; // File for IPC. Recive move from bot
+	std::ifstream	recive(FILE_RECIVE); // File for IPC. Recive move from bot
 	std::string		ansswer;
 	std::string		fullAnsswer;
 
-	recive.open(FILE_RECIVE);
 	if (!recive.is_open())
 	{
 		std::cout << RED << "Fail to open: " << FILE_RECIVE;

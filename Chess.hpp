@@ -29,7 +29,7 @@ class	StockfishBot;
 class	Chess
 {
 	public:
-	bool	runGame();
+	void	runGame();
 	char	getWinner();
 	Chess();
 	~Chess();
