@@ -74,6 +74,10 @@ void	Chess::addGameToList(string gameToSave)
 	std::ofstream	gameList(GAME_LIST, std::ios::app);
 	std::ofstream	newGameFile(gamePath, std::ios::app);
 
+	if (!gameList || !newGameFile)
+	{
+		std::cout << RED << "Error can't open a";
+	}
 	newGameFile.write((char *)board, 8 * 9);
 	newGameFile << "\nWhite figures\n";
 	gameList << gameToSave << '\n';

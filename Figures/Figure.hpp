@@ -14,8 +14,8 @@ using std::string;
 class	Figure
 {
 	protected:
-	int			currPos[2];		// current figure position
-	int			destPos[2];		// new figure position [y;x]
+	int			currPos[2];
+	int			destPos[2];
 	char		color;
 	string		destXY;
 	string		currXY;

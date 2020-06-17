@@ -1,6 +1,59 @@
 
 #include "Chess.hpp"
 
+void	Chess::playWithBot()
+{
+	std::string	colorToPlay;
+	char		buff[2];
+
+	colorToPlay[0] = '\0';
+	while (bot.isBotActive() == false)
+	{
+		std::cout << CYAN << " Choose color to play:\n"
+		<< WHITE << " [w]hite color\n [b]lack color:\n  ";
+		std::cin >> colorToPlay;
+		if (colorToPlay[0] == 'w')
+		{
+			bot.activateBot();
+			bot.setBotColor('b');
+		}
+		else if (colorToPlay[0] == 'b')
+		{
+			bot.activateBot();
+			bot.setBotColor('w');
+		}
+		else
+			std::cout << RED << "Wrong option. Try again.\n";
+	}
+	std::cin.getline(buff, 2);
+}
+
+void	Chess::whoPlay()
+{
+	std::string option;
+	char		buff[2];
+
+	option[0] = '\0';
+	while (option[0] == '\0')
+	{
+		std::cout << MAGENTA << " Choose option:\n" << WHITE
+		<< " [1] Play with friend.\n [2] Play with bot.\n  ";
+		std::cin >> option;
+		if (option[0] == '1')
+		{
+			std::cin.getline(buff, 2);
+			break ;
+		}
+		else if (option[0] == '2')
+			playWithBot();
+		else
+		{
+			std::cout<<RED<<" Wrong option: " << option <<'\n'<< WHITE;
+			option = '\0';
+		}
+	}
+}
+
 char	Chess::getWinner()
 {
 	if (winner == false)
@@ -34,8 +87,7 @@ bool	Chess::readOption()
 		}
 		else if(strcmp((const char *)option, "load game") == 0)
 		{
-			loadGame();
-			result = true;
+			result = (loadGame()) ? true : false;
 		}
 		else if (strcmp((const char *)option, "exit") == 0)
 		{
@@ -145,8 +197,11 @@ void	Chess::figuresInit()
 Chess::Chess()
 {
 	winner = '\0';
+	checkToBlack = false;
+	checkToWhite = false;
 	gameRules();
 	readOption();
+	whoPlay();
 	boardPrint();
 	runGame();
 }

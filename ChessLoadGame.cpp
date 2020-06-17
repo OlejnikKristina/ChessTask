@@ -1,7 +1,6 @@
 
 #include "Chess.hpp"
 
-
 bool	Chess::openLoadedGame(char gameName[], std::ifstream &loadedGame)
 {
 	loadedGame.open(gameName);

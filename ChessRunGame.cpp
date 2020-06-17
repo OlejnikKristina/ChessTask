@@ -44,9 +44,17 @@ bool	Chess::substructMove(char move[], char direction[3])
 bool	Chess::getMove()
 {
 	char	move[42];
+	bool	doesBotWork;
 
-	std::cout << GREEN << " Enter move: " << RESET;
-	std::cin.getline(move, 42);
+	doesBotWork = false;
+	if (bot.isBotActive() && ((bot.getBotColor() == 'w' && color == 'w')
+	|| (bot.getBotColor() == 'b' && color == 'b')))
+		doesBotWork = bot.getBotMove(move);
+	else
+	{
+		std::cout << GREEN << " Enter move: " << RESET;
+		std::cin.getline(move, 42);
+	}
 	if (strcmp(move, "exit") == 0)
 		exit(0);
 	else if (strcmp(move, "restart game") == 0)
@@ -69,7 +77,7 @@ bool	Chess::moveFigure(map <string, char> &figures)
 	char	figure;
 	char	current[3];
 	char	dest[3];
-	show_figures(figures);			//TEST
+
 	strncpy(current, (char const *) currPos, 3);
 	strncpy(dest, (char const *) destPos, 3);
 	figure = figures[currPos];
@@ -112,11 +120,13 @@ bool	Chess::runGame()
 	while (winner == false)
 	{
 		std::cout << "  ** White's turn **\n";
+		color = 'w';
 		while (!getMove() || !moveFigure(figsWhite))
 			;
 		putFigureOnBoard(figsWhite[currPos], figsWhite);
 		checkToWhite = false;
 		std::cout << "  ** Black's turn **\n";
+		color = 'b';
 		while (!getMove() || !moveFigure(figsBlack))
 			;
 		putFigureOnBoard(figsBlack[currPos], figsBlack);

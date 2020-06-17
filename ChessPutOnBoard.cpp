@@ -35,6 +35,8 @@ bool	Chess::putFigureOnBoard(char figure, std::map <string, char> &figures)
 {
 	board[moveFrom[Y]][moveFrom[X]] = '\0';
 	board[moveTo[Y]][moveTo[X]] = figure;
+	if (bot.isBotActive())
+		bot.saveMove((const char *)currPos, (const char *)destPos);
 	boardPrint();
 	updateFigureSpot(figures);
 	if (checkToBlack)
