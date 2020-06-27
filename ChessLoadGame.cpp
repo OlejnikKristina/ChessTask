@@ -37,7 +37,7 @@ void	Chess::loadFigures(char gamePath[], std::ifstream &gameToLoad,
 
 	key.resize(2);
 	figures[colour] = color;
-	if (figures[colour] == 'w')
+	if (figures[colour] == white)
 	{
 		getline(gameToLoad, figs);
 		nextFigureSet = "Black figures";
@@ -75,8 +75,8 @@ bool	Chess::loadGame()
 	if (!openLoadedGame(gamePath, gameToLoad))
 		return (false);
 	loadBoard(gameToLoad);
-	loadFigures(gamePath, gameToLoad, figsWhite, 'w');
-	loadFigures(gamePath, gameToLoad, figsBlack, 'b');
+	loadFigures(gamePath, gameToLoad, figsWhite, white);
+	loadFigures(gamePath, gameToLoad, figsBlack, black);
 	gameToLoad.close();
 	return (true);
 }

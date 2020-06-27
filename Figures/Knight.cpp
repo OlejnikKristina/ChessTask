@@ -20,9 +20,9 @@ bool	Knight::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
 
-	if (color == 'w')
+	if (color == white)
 		foeKing = BKING;
-	else if (color == 'b')
+	else if (color == black)
 		foeKing = KING;
 	return (
 		doesKnightAttack(board, destPos[X] + 1, destPos[Y] + 2, foeKing) ||
@@ -43,7 +43,7 @@ bool	Knight::checkMove(char board[9][8])
 
 	x = destPos[X];
 	y = destPos[Y];
-	isEnemy = (color == 'w') ?
+	isEnemy = (color == white) ?
 	(&Figure::isBlackFigure) : (&Figure::isWhiteFigure);
 	if (!preCheck(destPos[X], destPos[Y], "Knight"))
 		return (false);

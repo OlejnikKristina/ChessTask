@@ -1,0 +1,2 @@
+position startpos moves e2e4 a7a6 a2a4 
+go

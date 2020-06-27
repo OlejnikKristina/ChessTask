@@ -90,7 +90,7 @@ bool	Bishop::checkMove(char board[9][8])
 {
 	bool	(Figure::*isEnemy)(char);
 
-	isEnemy = (color == 'w') ?
+	isEnemy = (color == white) ?
 	(&Figure::isBlackFigure):(&Figure::isWhiteFigure);
 	if (!preCheck(destPos[X], destPos[Y], "Bishop"))
 		return (false);

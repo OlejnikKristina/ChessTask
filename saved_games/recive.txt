@@ -1,0 +1,2 @@
+Stockfish 11 64 by T. Romstad, M. Costalba, J. Kiiski, G. Linscott
+bestmove a6a5

@@ -14,6 +14,7 @@ using std::string;
 class	Figure
 {
 	protected:
+	enum		colour {white = 'w', black = 'b'};
 	int			currPos[2];
 	int			destPos[2];
 	char		color;

@@ -47,8 +47,9 @@ bool	Chess::getMove()
 	bool	doesBotWork;
 
 	doesBotWork = false;
-	if (bot.isBotActive() && ((bot.getBotColor() == 'w' && color == 'w')
-	|| (bot.getBotColor() == 'b' && color == 'b')))
+	if (bot.isBotActive()
+	&& ((bot.getBotColor() == white && color == white)
+	|| (bot.getBotColor() == black && color == black)))
 		doesBotWork = bot.getBotMove(move);
 	else
 	{
@@ -120,7 +121,7 @@ void	Chess::runGame()
 	while (winner == false)
 	{
 		std::cout << "  ** White's turn **\n";
-		color = 'w';
+		color = white;
 		while (!getMove() || !moveFigure(figsWhite))
 			;
 		putFigureOnBoard(figsWhite[currPos], figsWhite);

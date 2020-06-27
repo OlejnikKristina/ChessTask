@@ -31,6 +31,7 @@ class	StockfishBot
 	char			getBotColor();
 	bool			getBotMove(char move[]);
 	bool			sendRequest();
+	bool			isBotSrcExist();
 	std::string		reciveAnsswer();
 };
 

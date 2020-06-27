@@ -64,6 +64,20 @@ std::string	StockfishBot::reciveAnsswer()
 	return (fullAnsswer);
 }
 
+bool	StockfishBot::isBotSrcExist()
+{
+	std::fstream	botSrc;
+	bool			result;
+
+	botSrc.open(CHESS_AI_PATH);
+	if (botSrc.is_open())
+	{
+		botSrc.close();
+		return (true);
+	}
+	return (false);
+}
+
 bool	StockfishBot::getBotMove(char move[])
 {
 	std::string		ansswer;

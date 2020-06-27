@@ -3,6 +3,7 @@
 #define CHESS_HPP
 
 #include <iostream>
+#include <gtest/gtest_prod.h>
 #include <fstream>
 #include <ctype.h>
 #include <string>
@@ -26,15 +27,17 @@ using std::map;
 
 class	StockfishBot;
 
+
 class	Chess
 {
 	public:
-	void	runGame();
+	void	startGame();
 	char	getWinner();
 	Chess();
 	~Chess();
 
-	private:
+	protected:
+	enum				colour {white = 'w', black = 'b'};
 	char				board[9][8];	// Chess board (first line represent letters on a board)
 	char				currPos[3];		// Current figure position
 	char				destPos[3];		// Destination position
@@ -63,6 +66,7 @@ class	Chess
 	bool	putFigureOnBoard(char color, std::map <string, char> &figures);
 	bool	isBlackFigure(char figure);
 	void	gameRules();
+	void	runGame();
 	bool	goFigure(Figure *figure);
 	bool	goKing(char current[3], char dest[3]);
 	bool	goQueen(char current[3], char dest[3]);
@@ -80,6 +84,10 @@ class	Chess
 /**			Chess Bot		**/
 	void	whoPlay();
 	void	playWithBot();
+
+	friend class Test;
+	friend class ChessTest;
+	FRIEND_TEST(ChessTest, FirstMoveWhite_FromPawnA2ToPawnH2);
 };
 
 void	trim(std::string &s);

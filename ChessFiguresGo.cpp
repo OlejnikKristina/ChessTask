@@ -9,7 +9,7 @@ bool	Chess::goFigure(Figure *figure)
 	figure->initCoordinate(moveFrom, moveTo);
 	isLegitMove = figure->checkMove(board);
 	isCheck = figure->isCheckToKing(board);
-	(color == 'w') ?
+	(color == white) ?
 	(checkToBlack = isCheck) :
 	(checkToWhite = isCheck);
 	return (isLegitMove);
@@ -40,7 +40,7 @@ bool Chess::goQueen(char current[3], char dest[3])
 	isCheck = queen.Rook::isCheckToKing(board);
 	if (isCheck == false)
 		isCheck = queen.Bishop::isCheckToKing(board);
-	(color == 'w') ?
+	(color == white) ?
 	(checkToBlack = isCheck) : (checkToWhite = isCheck);
 	if (isLegitMove == false)
 		std::cout << RED << " Illegal move for Queen."

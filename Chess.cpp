@@ -12,15 +12,15 @@ void	Chess::playWithBot()
 		std::cout << CYAN << " Choose color to play:\n"
 		<< WHITE << " [w]hite color\n [b]lack color:\n  ";
 		std::cin >> colorToPlay;
-		if (colorToPlay[0] == 'w')
+		if (colorToPlay[0] == white)
 		{
 			bot.activateBot();
-			bot.setBotColor('b');
+			bot.setBotColor(black);
 		}
-		else if (colorToPlay[0] == 'b')
+		else if (colorToPlay[0] == black)
 		{
 			bot.activateBot();
-			bot.setBotColor('w');
+			bot.setBotColor(white);
 		}
 		else
 			std::cout << RED << "Wrong option. Try again.\n";
@@ -39,14 +39,23 @@ void	Chess::whoPlay()
 		std::cout << MAGENTA << " Choose option:\n" << WHITE
 		<< " [1] Play with friend.\n [2] Play with bot.\n  ";
 		std::cin >> option;
+		if (option[0] == '2')
+		{
+			if (bot.isBotSrcExist() == false)
+			{
+				option[0] = '1';
+				std::cout << YELLOW << " Chess Bot wasn't loaded. "
+				<< "You can play only with a friend.\n";
+			}
+			else
+				playWithBot();
+		}
 		if (option[0] == '1')
 		{
 			std::cin.getline(buff, 2);
 			break ;
 		}
-		else if (option[0] == '2')
-			playWithBot();
-		else
+		else if (option[0] != '2')
 		{
 			std::cout<<RED<<" Wrong option: " << option <<'\n'<< WHITE;
 			option = '\0';
@@ -58,9 +67,9 @@ char	Chess::getWinner()
 {
 	if (winner == false)
 		std::cout << GREEN << "  ** Game not finished yet  **\n";
-	else if (winner == 'b')
+	else if (winner == black)
 		std::cout << GREEN << "  **  The winner is black!  **\n";
-	else if (winner == 'w')
+	else if (winner == white)
 		std::cout << GREEN << "  **  The winner is white!  **\n";
 	return (winner);
 }
@@ -138,7 +147,7 @@ void	Chess::boardSetToZero()
 	for (int y = 0; y <= 8; y++)
 	{
 		for (int x = 0; x < 8; x++)
-			board[y][x] = '\0';
+			board[y][x] = ' ';
 	}
 }
 
@@ -174,8 +183,8 @@ void	Chess::figuresInit()
 	string	letter;
 	string	color = "color";
 
-	figsWhite[color] = 'w';
-	figsBlack[color] = 'b';
+	figsWhite[color] = white;
+	figsBlack[color] = black;
 	for (char a = 'a'; a <= 'h'; a++)
 	{
 		letter = a;
@@ -194,11 +203,8 @@ void	Chess::figuresInit()
 	figsBlack["e8"] = BKING;
 }
 
-Chess::Chess()
+void	Chess::startGame()
 {
-	winner = '\0';
-	checkToBlack = false;
-	checkToWhite = false;
 	gameRules();
 	readOption();
 	whoPlay();
@@ -206,9 +212,9 @@ Chess::Chess()
 	runGame();
 }
 
-int		main()
+Chess::Chess()
 {
-	Chess game;
-
-	return (0);
+	winner = false;
+	checkToBlack = false;
+	checkToWhite = false;
 }

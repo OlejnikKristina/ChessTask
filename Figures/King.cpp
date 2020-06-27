@@ -30,7 +30,7 @@ bool	King::checkMove(char board[9][8])
 
 	if (!preCheck(destPos[X], destPos[Y], "King"))
 		return (false);
-	if (color == 'w')
+	if (color == white)
 		res = isBlackFigure(board[destPos[Y]][destPos[X]]);
 	else
 		res = isWhiteFigure(board[destPos[Y]][destPos[X]]);

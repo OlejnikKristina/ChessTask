@@ -25,7 +25,7 @@ void	Chess::updateFigureSpot(std::map <string, char> &figures)
 	tempFigure = figures[exSpot];
 	figures.erase(exSpot);
 	figures[newSpot] = tempFigure;
-	if (figures[color] == 'b')
+	if (figures[color] == black)
 		figsWhite.erase(destPos);
 	else
 		figsBlack.erase(destPos);

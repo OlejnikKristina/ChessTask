@@ -58,8 +58,8 @@ bool Rook::isCheckToKing(char board[9][8])
 {
 	char	foeKing;
 
-	if (color == 'w') foeKing = BKING;
-	else if (color == 'b') foeKing = KING;
+	if (color == white) foeKing = BKING;
+	else if (color == black) foeKing = KING;
 	return (
 		isCheckToKingUp(board, destPos[X], destPos[Y] + 1, foeKing) ||
 		isCheckToKingDown(board, destPos[X], destPos[Y] - 1, foeKing) ||
