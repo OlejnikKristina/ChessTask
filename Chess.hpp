@@ -84,10 +84,6 @@ class	Chess
 /**			Chess Bot		**/
 	void	whoPlay();
 	void	playWithBot();
-
-	friend class Test;
-	friend class ChessTest;
-	FRIEND_TEST(ChessTest, FirstMoveWhite_FromPawnA2ToPawnH2);
 };
 
 void	trim(std::string &s);
